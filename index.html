@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevLog 2026: Архив</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Архив 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f1115;
-            --card-bg: #1a1d24;
-            --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.2);
-            --code-bg: #0d1117;
-            --code-text: #58a6ff;
-            --border: #2d3748;
+            /* Светлая палитра */
+            --bg-body: #f4f4f5;
+            --bg-card: #ffffff;
+            --text-main: #18181b;
+            --text-secondary: #52525b;
+            --accent: #6366f1; /* Индиго */
+            --accent-light: #e0e7ff;
+            --border: #e4e4e7;
+            --code-bg: #27272a;
+            --code-text: #a1a1aa;
         }
 
         * {
@@ -25,158 +26,161 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Merriweather', serif; /* Шрифт с засечками для текста */
+            background-color: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
             padding: 40px 20px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
             margin-bottom: 60px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 20px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--text-main);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            letter-spacing: -0.05em;
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-main);
         }
 
         header p {
-            color: var(--text-muted);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
             margin-top: 10px;
         }
 
-        /* Карточки записей */
+        /* Карточки */
         .entry {
-            background-color: var(--card-bg);
+            background-color: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: relative;
         }
 
-        .entry:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
+        .entry::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent);
         }
 
         .date-badge {
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--accent);
-            background: rgba(56, 189, 248, 0.1);
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            display: block;
+            font-weight: 700;
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
         }
 
         p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* Предсказания */
+        .stat-row {
             margin-bottom: 15px;
-            color: var(--text-muted);
         }
-
-        /* Стили для блока предсказаний */
-        .prediction-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .prediction-item {
+        .stat-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            padding: 10px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 6px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            font-weight: 500;
         }
-
-        .prediction-bar {
-            height: 6px;
-            background: #333;
-            border-radius: 3px;
-            width: 100%;
-            margin-top: 5px;
+        .progress-track {
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
             overflow: hidden;
         }
-
-        .prediction-fill {
+        .progress-fill {
             height: 100%;
             background: var(--accent);
-            border-radius: 3px;
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        /* Стили для кода и консоли */
-        pre {
-            background-color: var(--code-bg);
-            color: var(--code-text);
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            border: 1px solid #30363d;
-            margin-top: 20px;
-            white-space: pre-wrap; /* Перенос строк */
-        }
-
-        .math-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .math-card {
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .math-card span {
-            display: block;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .math-card small {
-            color: var(--text-muted);
-            font-size: 0.8rem;
+            border-radius: 4px;
         }
 
         /* Цитата */
         blockquote {
-            border-left: 4px solid var(--accent);
-            padding-left: 20px;
             font-style: italic;
-            color: #fff;
-            margin: 20px 0;
+            border-left: 3px solid var(--text-main);
+            padding-left: 20px;
+            margin: 25px 0;
+            color: var(--text-main);
+            font-size: 1.1rem;
         }
 
+        /* Консоль и код */
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 25px;
+            border-radius: 6px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            border: 1px solid #3f3f46;
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+
+        .math-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .math-box {
+            background: var(--bg-body);
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+        .math-box strong {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+        .math-box span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .check-mark {
+            color: #10b981; /* Зеленый */
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -184,40 +188,50 @@
     <div class="container">
         <header>
             <h1>DevLog 2026</h1>
-            <p>Хроники цифрового разума</p>
+            <p>Архив записей и вычислений</p>
         </header>
 
         <!-- ЗАПИСЬ 1 -->
         <article class="entry">
             <span class="date-badge">16.02.2026</span>
-            <h2>Анализ данных</h2>
-            <p>Топ-3 предсказаний нейросети на текущий период:</p>
+            <h2>Анализ вероятностей</h2>
+            <p>Результаты классификации транспортных средств:</p>
             
-            <div class="prediction-list">
-                <div class="prediction-item">
+            <div class="stat-row">
+                <div class="stat-header">
                     <span>Sports car</span>
                     <span>68.85%</span>
                 </div>
-                <div class="prediction-bar"><div class="prediction-fill" style="width: 68.85%"></div></div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 68.85%"></div>
+                </div>
+            </div>
 
-                <div class="prediction-item" style="margin-top: 15px;">
+            <div class="stat-row">
+                <div class="stat-header">
                     <span>Race car</span>
                     <span>22.13%</span>
                 </div>
-                <div class="prediction-bar"><div class="prediction-fill" style="width: 22.13%; background: #818cf8;"></div></div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 22.13%; opacity: 0.7;"></div>
+                </div>
+            </div>
 
-                <div class="prediction-item" style="margin-top: 15px;">
+            <div class="stat-row">
+                <div class="stat-header">
                     <span>Station wagon</span>
                     <span>6.44%</span>
                 </div>
-                <div class="prediction-bar"><div class="prediction-fill" style="width: 6.44%; background: #64748b;"></div></div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 6.44%; opacity: 0.4;"></div>
+                </div>
             </div>
         </article>
 
         <!-- ЗАПИСЬ 2 -->
         <article class="entry">
             <span class="date-badge">21.02.2026</span>
-            <h2>Философия кода</h2>
+            <h2>Философия эпохи</h2>
             <blockquote>
                 «У каждого поколения есть свой философ, писатель или художник, который захватывает и воплощает в себе идею времени... У нашего поколения есть философ. Он не художник и не писатель. Он программист.»
             </blockquote>
@@ -229,38 +243,44 @@
         <!-- ЗАПИСЬ 3 -->
         <article class="entry">
             <span class="date-badge">25.02.2026</span>
-            <h2>Криптоарифметика: SEND + MORE = MONEY</h2>
-            <p>Время решения: <strong>1.4273 сек.</strong></p>
+            <h2>Криптоарифметика</h2>
+            <p>Решение уравнения: <strong>SEND + MORE = MONEY</strong></p>
+            <p>Время выполнения: <em>1.4273 сек.</em></p>
+
+            <div class="math-grid">
+                <div class="math-box"><strong>9</strong><span>S</span></div>
+                <div class="math-box"><strong>5</strong><span>E</span></div>
+                <div class="math-box"><strong>6</strong><span>N</span></div>
+                <div class="math-box"><strong>7</strong><span>D</span></div>
+            </div>
+            
+            <div style="text-align: center; font-family: monospace; margin: 10px 0;">+</div>
             
             <div class="math-grid">
-                <div class="math-card"><span>9</span><small>S</small></div>
-                <div class="math-card"><span>5</span><small>E</small></div>
-                <div class="math-card"><span>6</span><small>N</small></div>
-                <div class="math-card"><span>7</span><small>D</small></div>
+                <div class="math-box"><strong>1</strong><span>M</span></div>
+                <div class="math-box"><strong>0</strong><span>O</span></div>
+                <div class="math-box"><strong>8</strong><span>R</span></div>
+                <div class="math-box"><strong>5</strong><span>E</span></div>
             </div>
-            <div style="text-align: center; font-family: 'JetBrains Mono'; font-size: 1.2rem; margin: 10px 0;">+</div>
-            <div class="math-grid">
-                <div class="math-card"><span>1</span><small>M</small></div>
-                <div class="math-card"><span>0</span><small>O</small></div>
-                <div class="math-card"><span>8</span><small>R</small></div>
-                <div class="math-card"><span>5</span><small>E</small></div>
+
+            <div style="text-align: center; font-family: monospace; margin: 10px 0;">=</div>
+
+            <div class="math-grid" style="background: var(--accent-light); padding: 10px; border-radius: 6px;">
+                <div class="math-box" style="border:none; background: transparent;"><strong>1</strong><span>M</span></div>
+                <div class="math-box" style="border:none; background: transparent;"><strong>0</strong><span>O</span></div>
+                <div class="math-box" style="border:none; background: transparent;"><strong>6</strong><span>N</span></div>
+                <div class="math-box" style="border:none; background: transparent;"><strong>5</strong><span>E</span></div>
+                <div class="math-box" style="border:none; background: transparent;"><strong>2</strong><span>Y</span></div>
             </div>
-            <div style="text-align: center; font-family: 'JetBrains Mono'; font-size: 1.2rem; margin: 10px 0;">=</div>
-            <div class="math-grid">
-                <div class="math-card"><span>1</span><small>M</small></div>
-                <div class="math-card"><span>0</span><small>O</small></div>
-                <div class="math-card"><span>6</span><small>N</small></div>
-                <div class="math-card"><span>5</span><small>E</small></div>
-                <div class="math-card"><span>2</span><small>Y</small></div>
-            </div>
-            <p style="text-align: center; color: #4ade80; margin-top: 20px;">✓ Решение верное: 9567 + 1085 = 10652</p>
+            
+            <p style="text-align: center; margin-top: 20px;" class="check-mark">✓ 9567 + 1085 = 10652 (Верно)</p>
         </article>
 
         <!-- ЗАПИСЬ 4 -->
         <article class="entry">
-            <span class="date-badge">Архив сессии</span>
-            <h2>Лог работы программы (Console Output)</h2>
-            <p>Ниже представлен лог решения различных ребусов пользователем:</p>
+            <span class="date-badge">Лог сессии</span>
+            <h2>Результаты вычислений</h2>
+            <p>Ниже представлен вывод программы для серии ребусов:</p>
             
 <pre>
 ==============================
