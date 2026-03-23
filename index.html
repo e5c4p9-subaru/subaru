@@ -12,11 +12,11 @@
     <style>
         :root {
             /* Светлая палитра */
-            --bg-body: #f0f4f8; /* Светлый серо-голубой фон */
+            --bg-body: #f0f4f8;
             --bg-card: #ffffff;
             --text-primary: #2d3748;
             --text-secondary: #718096;
-            --accent-color: #4c51bf; /* Индиго */
+            --accent-color: #4c51bf;
             --accent-light: #ebf4ff;
             --success-color: #38a169;
             --danger-color: #e53e3e;
@@ -26,11 +26,7 @@
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Nunito', sans-serif;
@@ -40,12 +36,8 @@
             padding: 40px 20px;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .container { max-width: 800px; margin: 0 auto; }
 
-        /* Заголовок */
         header {
             text-align: center;
             margin-bottom: 60px;
@@ -69,7 +61,6 @@
             font-size: 0.9rem;
         }
 
-        /* Карточки контента */
         .card {
             background: var(--bg-card);
             border-radius: 16px;
@@ -80,9 +71,7 @@
             transition: transform 0.2s ease;
         }
 
-        .card:hover {
-            transform: translateY(-3px);
-        }
+        .card:hover { transform: translateY(-3px); }
 
         .date-label {
             display: inline-block;
@@ -107,10 +96,7 @@
             font-size: 1.05rem;
         }
 
-        /* Стили для прогресс-баров */
-        .stat-item {
-            margin-bottom: 20px;
-        }
+        .stat-item { margin-bottom: 20px; }
         .stat-header {
             display: flex;
             justify-content: space-between;
@@ -130,7 +116,6 @@
             border-radius: 6px;
         }
 
-        /* Цитата */
         blockquote {
             background: var(--bg-body);
             border-left: 5px solid var(--accent-color);
@@ -142,7 +127,6 @@
             font-size: 1.1rem;
         }
 
-        /* Сетка для математики */
         .math-grid {
             display: flex;
             justify-content: center;
@@ -170,7 +154,6 @@
             text-transform: uppercase;
         }
 
-        /* Светлый блок кода */
         pre {
             background: var(--code-bg);
             border: 1px solid var(--border-color);
@@ -184,17 +167,9 @@
             line-height: 1.5;
         }
         
-        /* Подсветка важных строк в коде */
-        .highlight {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-        .success-text {
-            color: var(--success-color);
-            font-weight: 700;
-        }
+        .highlight { color: var(--accent-color); font-weight: 600; }
+        .success-text { color: var(--success-color); font-weight: 700; }
         
-        /* Новые стили для блока статистики */
         .study-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -226,7 +201,6 @@
             color: var(--success-color);
         }
 
-        /* === НОВЫЕ СТИЛИ ДЛЯ ДЕРЕВА РЕШЕНИЙ === */
         .tree-container {
             font-family: 'Source Code Pro', monospace;
             background: var(--code-bg);
@@ -250,11 +224,7 @@
             gap: 8px;
         }
         
-        .tree-node {
-            margin-left: 20px;
-            position: relative;
-        }
-        
+        .tree-node { margin-left: 20px; position: relative; }
         .tree-node::before {
             content: "│";
             position: absolute;
@@ -262,13 +232,11 @@
             color: var(--text-secondary);
             font-weight: 300;
         }
-        
         .tree-branch {
             margin: 4px 0;
             padding-left: 15px;
             border-left: 2px solid var(--border-color);
         }
-        
         .condition {
             color: var(--text-primary);
             font-weight: 700;
@@ -277,7 +245,6 @@
             border-radius: 6px;
             display: inline-block;
         }
-        
         .decision {
             font-weight: 700;
             padding: 4px 12px;
@@ -285,28 +252,14 @@
             display: inline-block;
             margin-left: 10px;
         }
-        
-        .decision.approved {
-            background: rgba(56, 161, 105, 0.15);
-            color: var(--success-color);
-        }
-        
-        .decision.denied {
-            background: rgba(229, 62, 62, 0.15);
-            color: var(--danger-color);
-        }
-        
-        .decision.warning {
-            background: rgba(221, 107, 32, 0.15);
-            color: var(--warning-color);
-        }
-        
+        .decision.approved { background: rgba(56, 161, 105, 0.15); color: var(--success-color); }
+        .decision.denied { background: rgba(229, 62, 62, 0.15); color: var(--danger-color); }
+        .decision.warning { background: rgba(221, 107, 32, 0.15); color: var(--warning-color); }
         .probability {
             font-size: 0.85rem;
             color: var(--text-secondary);
             margin-left: 8px;
         }
-        
         .branch-label {
             font-size: 0.8rem;
             font-weight: 700;
@@ -314,16 +267,8 @@
             border-radius: 4px;
             margin-right: 6px;
         }
-        
-        .branch-yes {
-            background: rgba(56, 161, 105, 0.2);
-            color: var(--success-color);
-        }
-        
-        .branch-no {
-            background: rgba(229, 62, 62, 0.2);
-            color: var(--danger-color);
-        }
+        .branch-yes { background: rgba(56, 161, 105, 0.2); color: var(--success-color); }
+        .branch-no { background: rgba(229, 62, 62, 0.2); color: var(--danger-color); }
         
         .accuracy-badge {
             display: inline-flex;
@@ -335,19 +280,54 @@
             padding: 15px 25px;
             margin-top: 20px;
         }
-        
         .accuracy-value {
             font-size: 2rem;
             font-weight: 800;
             color: var(--accent-color);
         }
-        
         .accuracy-label {
             font-size: 0.95rem;
             color: var(--text-secondary);
             line-height: 1.3;
         }
 
+        /* Стили для блока диагностики */
+        .diagnostic-block {
+            font-family: 'Source Code Pro', monospace;
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        .diagnostic-header {
+            color: var(--accent-color);
+            font-weight: 800;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed var(--border-color);
+        }
+        .diagnostic-separator {
+            color: var(--text-secondary);
+            margin: 10px 0;
+            font-weight: 300;
+        }
+        .prediction-sample {
+            background: var(--bg-body);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 3px solid var(--warning-color);
+        }
+        .prediction-value {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .prediction-fact { color: var(--success-color); }
+        .prediction-pred { color: var(--accent-color); }
     </style>
 </head>
 <body>
@@ -358,7 +338,36 @@
             <p>Цифровой архив и наблюдения</p>
         </header>
 
-        <!-- 🔹 НОВЫЙ БЛОК: 21 марта 2026 - Дерево решений -->
+        <!-- 🔹 НОВЫЙ БЛОК: 23 марта 2026 - Диагностика массивов -->
+        <article class="card">
+            <span class="date-label">23 марта 2026</span>
+            <h2>📊 Диагностика массивов</h2>
+            <p>Отладочная информация о формах и размерах тензоров при валидации модели:</p>
+            
+            <div class="diagnostic-block">
+                <div class="diagnostic-header">📊 ДИАГНОСТИКА МАССИВОВ:</div>
+                <div class="diagnostic-separator">==================================================</div>
+                <div>y_test_real форма: <span class="highlight">(100, 1)</span></div>
+                <div>pred_test_real форма: <span class="highlight">(1, 1)</span></div>
+                <div>y_test_real размер: <span class="highlight">100</span></div>
+                <div>pred_test_real размер: <span class="highlight">1</span></div>
+                <div class="diagnostic-separator">==================================================</div>
+                
+                <div style="margin-top: 15px;" class="diagnostic-header">🔍 Примеры прогнозов (реальные оценки):</div>
+                <div>Доступно образцов: <span class="highlight">1</span></div>
+                
+                <div class="prediction-sample">
+                    Факт: <span class="prediction-fact prediction-value">91.0</span> | 
+                    Прогноз: <span class="prediction-pred prediction-value">61.5</span>
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 0.95rem;">
+                ⚠️ <em>Обратите внимание: несоответствие размеров предсказания требует проверки логики reshape/flatten перед метриками.</em>
+            </p>
+        </article>
+
+        <!-- 🔹 БЛОК: 21 марта 2026 - Дерево решений -->
         <article class="card">
             <span class="date-label">21 марта 2026</span>
             <h2>🌳 Дерево решений: Анализ одобрения</h2>
