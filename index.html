@@ -299,44 +299,80 @@
             border-radius: 10px;
             padding: 20px;
             margin: 15px 0;
-            font-size: 0.9rem;
-            line-height: 1.7;
+            font-size: 0.85rem;
+            line-height: 1.6;
             color: #4a5568;
+            overflow-x: auto;
         }
         .diagnostic-header {
             color: var(--accent-color);
             font-weight: 800;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
+            margin: 12px 0 8px;
+            padding-bottom: 6px;
             border-bottom: 2px dashed var(--border-color);
             display: flex;
             align-items: center;
             gap: 6px;
         }
-        .diagnostic-separator {
-            color: var(--text-secondary);
+        .epoch-log {
             margin: 8px 0;
-            font-weight: 300;
-            letter-spacing: 1px;
+            padding-left: 10px;
+            border-left: 2px solid var(--accent-light);
         }
-        .metric-row {
+        .epoch-line {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px dashed var(--border-color);
+            padding: 3px 0;
+            font-size: 0.85rem;
         }
-        .metric-row:last-child { border-bottom: none; }
-        .metric-label { color: var(--text-secondary); }
-        .metric-value { 
+        .epoch-num { color: var(--text-secondary); }
+        .epoch-mse { 
             font-weight: 700; 
-            color: var(--text-primary);
+            color: var(--accent-color);
             font-family: 'Source Code Pro', monospace;
         }
-        .metric-value.good { color: var(--success-color); }
-        .metric-value.warning { color: var(--warning-color); }
+        .completion-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(56, 161, 105, 0.15);
+            color: var(--success-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 15px 0;
+        }
+        .result-box {
+            background: var(--bg-body);
+            padding: 12px 16px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        .result-label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .result-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            font-family: 'Source Code Pro', monospace;
+        }
+        .result-value.good { color: var(--success-color); }
+        .result-value.warn { color: var(--warning-color); }
         
         .prediction-list {
-            margin-top: 15px;
+            margin: 15px 0;
             padding-top: 15px;
             border-top: 2px dashed var(--border-color);
         }
@@ -349,27 +385,37 @@
             background: var(--bg-body);
             border-radius: 8px;
             border-left: 3px solid var(--accent-color);
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
         }
-        .prediction-label {
+        .prediction-fact { color: var(--success-color); font-weight: 700; }
+        .prediction-pred { color: var(--accent-color); font-weight: 700; }
+        .prediction-sep { color: var(--text-secondary); margin: 0 6px; }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-family: 'Source Code Pro', monospace;
             font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-right: 10px;
         }
-        .prediction-fact {
-            font-weight: 700;
-            color: var(--success-color);
-            font-family: 'Source Code Pro', monospace;
-        }
-        .prediction-pred {
-            font-weight: 700;
+        .comparison-table th {
+            background: var(--accent-light);
             color: var(--accent-color);
-            font-family: 'Source Code Pro', monospace;
+            font-weight: 800;
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-color);
         }
-        .prediction-separator {
-            color: var(--text-secondary);
-            margin: 0 8px;
-            font-weight: 300;
+        .comparison-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-color);
         }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover { background: var(--bg-body); }
+        .mse-val { font-weight: 700; text-align: right; font-family: 'Source Code Pro', monospace; }
+        .mse-val.better { color: var(--success-color); }
+        .mse-val.worse { color: var(--danger-color); }
         
         .model-insight {
             background: linear-gradient(135deg, var(--accent-light), #f7fafc);
@@ -378,10 +424,10 @@
             padding: 15px 20px;
             margin-top: 20px;
             font-size: 0.95rem;
+            line-height: 1.5;
         }
-        .model-insight strong {
-            color: var(--accent-color);
-        }
+        .model-insight strong { color: var(--accent-color); }
+        .insight-warning { color: var(--warning-color); font-weight: 600; }
     </style>
 </head>
 <body>
@@ -392,70 +438,101 @@
             <p>Цифровой архив и наблюдения</p>
         </header>
 
-        <!-- 🔹 НОВЫЙ БЛОК: 23 марта 2026 - Диагностика нейросети -->
+        <!-- 🔹 НОВЫЙ БЛОК: 23 марта 2026 - Нейросеть с новым признаком -->
         <article class="card">
             <span class="date-label">23 марта 2026</span>
-            <h2>🧠 Нейросеть: Результаты обучения</h2>
-            <p>Диагностика и метрики после обучения модели прогнозирования оценок:</p>
+            <h2>🧠 Нейросеть: Эксперимент с признаками</h2>
+            <p>Добавлен числовой признак <strong>«reading score»</strong>. Сравнение метрик с базовой моделью:</p>
             
             <div class="diagnostic-block">
-                <div class="diagnostic-header">📊 Итоговые результаты</div>
+                <div class="diagnostic-header">📊 Процесс обучения</div>
                 
-                <div class="metric-row">
-                    <span class="metric-label">Ошибка на обучении (MSE):</span>
-                    <span class="metric-value good">0.017982</span>
+                <div class="epoch-log">
+                    <div class="epoch-line"><span class="epoch-num">Эпоха    0</span><span class="epoch-mse">| Ошибка (MSE): 0.020260</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  100</span><span class="epoch-mse">| Ошибка (MSE): 0.019167</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  200</span><span class="epoch-mse">| Ошибка (MSE): 0.019096</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  300</span><span class="epoch-mse">| Ошибка (MSE): 0.019068</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  400</span><span class="epoch-mse">| Ошибка (MSE): 0.019034</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  500</span><span class="epoch-mse">| Ошибка (MSE): 0.018991</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  600</span><span class="epoch-mse">| Ошибка (MSE): 0.018934</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  700</span><span class="epoch-mse">| Ошибка (MSE): 0.018861</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  800</span><span class="epoch-mse">| Ошибка (MSE): 0.018773</span></div>
+                    <div class="epoch-line"><span class="epoch-num">Эпоха  900</span><span class="epoch-mse">| Ошибка (MSE): 0.018665</span></div>
                 </div>
-                <div class="metric-row">
-                    <span class="metric-label">Ошибка на тесте (MSE):</span>
-                    <span class="metric-value warning">0.026148</span>
+                
+                <div class="completion-badge">✅ Обучение завершено!</div>
+                
+                <div class="diagnostic-header" style="margin-top: 15px;">📊 Итоговые результаты</div>
+                <div class="results-grid">
+                    <div class="result-box">
+                        <span class="result-label">Train MSE</span>
+                        <span class="result-value good">0.018530</span>
+                    </div>
+                    <div class="result-box">
+                        <span class="result-label">Test MSE</span>
+                        <span class="result-value warn">0.027012</span>
+                    </div>
                 </div>
                 
                 <div class="prediction-list">
                     <div class="diagnostic-header" style="margin-bottom: 8px; padding-bottom: 6px; border-bottom: none;">
                         🔍 Примеры прогнозов (реальные оценки)
                     </div>
-                    
                     <div class="prediction-item">
-                        <span class="prediction-label">Факт:</span>
-                        <span class="prediction-fact">91.0</span>
-                        <span class="prediction-separator">|</span>
-                        <span class="prediction-label">Прогноз:</span>
-                        <span class="prediction-pred">67.0</span>
+                        <span>Факт:</span><span class="prediction-fact">91.0</span>
+                        <span class="prediction-sep">|</span>
+                        <span>Прогноз:</span><span class="prediction-pred">69.6</span>
                     </div>
                     <div class="prediction-item">
-                        <span class="prediction-label">Факт:</span>
-                        <span class="prediction-fact">53.0</span>
-                        <span class="prediction-separator">|</span>
-                        <span class="prediction-label">Прогноз:</span>
-                        <span class="prediction-pred">61.5</span>
+                        <span>Факт:</span><span class="prediction-fact">53.0</span>
+                        <span class="prediction-sep">|</span>
+                        <span>Прогноз:</span><span class="prediction-pred">65.6</span>
                     </div>
                     <div class="prediction-item">
-                        <span class="prediction-label">Факт:</span>
-                        <span class="prediction-fact">80.0</span>
-                        <span class="prediction-separator">|</span>
-                        <span class="prediction-label">Прогноз:</span>
-                        <span class="prediction-pred">70.9</span>
+                        <span>Факт:</span><span class="prediction-fact">80.0</span>
+                        <span class="prediction-sep">|</span>
+                        <span>Прогноз:</span><span class="prediction-pred">69.3</span>
                     </div>
                     <div class="prediction-item">
-                        <span class="prediction-label">Факт:</span>
-                        <span class="prediction-fact">74.0</span>
-                        <span class="prediction-separator">|</span>
-                        <span class="prediction-label">Прогноз:</span>
-                        <span class="prediction-pred">60.0</span>
+                        <span>Факт:</span><span class="prediction-fact">74.0</span>
+                        <span class="prediction-sep">|</span>
+                        <span>Прогноз:</span><span class="prediction-pred">64.0</span>
                     </div>
                     <div class="prediction-item">
-                        <span class="prediction-label">Факт:</span>
-                        <span class="prediction-fact">84.0</span>
-                        <span class="prediction-separator">|</span>
-                        <span class="prediction-label">Прогноз:</span>
-                        <span class="prediction-pred">75.8</span>
+                        <span>Факт:</span><span class="prediction-fact">84.0</span>
+                        <span class="prediction-sep">|</span>
+                        <span>Прогноз:</span><span class="prediction-pred">71.0</span>
                     </div>
                 </div>
+                
+                <div class="diagnostic-header" style="margin-top: 15px;">📊 Сравнение моделей</div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Модель</th>
+                            <th style="text-align: right;">Train MSE</th>
+                            <th style="text-align: right;">Test MSE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3 признака (базовая)</td>
+                            <td class="mse-val better">0.017982</td>
+                            <td class="mse-val better">0.026148</td>
+                        </tr>
+                        <tr>
+                            <td>4 признака (+reading score)</td>
+                            <td class="mse-val worse">0.018530</td>
+                            <td class="mse-val worse">0.027012</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             
             <div class="model-insight">
-                💡 <strong>Наблюдение:</strong> Разница между train-MSE и test-MSE указывает на лёгкий переобучение. 
-                Рекомендуется добавить регуляризацию или увеличить размер обучающей выборки.
+                💡 <strong>Наблюдение:</strong> Добавление признака <em>«reading score»</em> <span class="insight-warning">не улучшило, а слегка ухудшило</span> метрики на тесте. 
+                Возможные причины: избыточность признака (сильная корреляция с target), малый размер выборки или необходимость настройки гиперпараметров. 
+                Рекомендуется протестировать другие признаки или применить регуляризацию.
             </div>
         </article>
 
