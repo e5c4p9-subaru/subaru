@@ -428,6 +428,49 @@
         }
         .model-insight strong { color: var(--accent-color); }
         .insight-warning { color: var(--warning-color); font-weight: 600; }
+
+        /* Стили для диаграммы алгоритма */
+        .flowchart-container {
+            background: var(--bg-body);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+        
+        .flowchart-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .algorithm-description {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        .algorithm-description h3 {
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .algorithm-description ul {
+            margin-left: 20px;
+            color: var(--text-secondary);
+        }
+        
+        .algorithm-description li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -437,6 +480,34 @@
             <h1>DevLog 2026</h1>
             <p>Цифровой архив и наблюдения</p>
         </header>
+
+        <!-- 🔹 НОВЫЙ БЛОК: 31 марта 2026 - Диаграмма алгоритма -->
+        <article class="card">
+            <span class="date-label">31 марта 2026</span>
+            <h2>📊 Диаграмма: Алгоритм обучения нейронной сети</h2>
+            <p>Блок-схема алгоритма обучения персептрона с учителем:</p>
+            
+            <div class="flowchart-container">
+                <img src="algorithm_flowchart.png" alt="Блок-схема алгоритма обучения нейронной сети" class="flowchart-image">
+            </div>
+            
+            <div class="algorithm-description">
+                <h3>📝 Описание алгоритма:</h3>
+                <ul>
+                    <li><strong>Инициализация:</strong> случайная генерация весов W₀</li>
+                    <li><strong>Входные данные:</strong> обучающие примеры x(k), d(k), где k = 1,p</li>
+                    <li><strong>Параметры:</strong> η - скорость обучения, N - число входов, M - число выходов</li>
+                    <li><strong>Цикл обучения:</strong> для каждого примера вычисляется выход y(k) и ошибка e(k)</li>
+                    <li><strong>Коррекция весов:</strong> wᵢ := wᵢ - η·e(k)·x(k)</li>
+                    <li><strong>Критерий остановки:</strong> S_err ≤ E_son (достигнута требуемая точность)</li>
+                </ul>
+            </div>
+            
+            <div class="model-insight">
+                💡 <strong>Примечание:</strong> Данный алгоритм реализует метод обучения персептрона с использованием правила дельта (delta rule) или метода наименьших квадратов. 
+                Алгоритм итеративно корректирует веса сети до достижения заданной точности E_son.
+            </div>
+        </article>
 
         <!-- 🔹 НОВЫЙ БЛОК: 23 марта 2026 - Нейросеть с новым признаком -->
         <article class="card">
