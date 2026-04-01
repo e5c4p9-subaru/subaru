@@ -471,6 +471,182 @@
             margin: 8px 0;
             line-height: 1.6;
         }
+
+        /* ===== НОВЫЕ СТИЛИ ДЛЯ БЛОКА 1 АПРЕЛЯ ===== */
+        
+        /* Статистика пациентов */
+        .patient-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+        .patient-stat-box {
+            background: var(--bg-body);
+            padding: 15px 10px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        .patient-stat-value {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        .patient-stat-value.total { color: var(--accent-color); }
+        .patient-stat-value.emergency { color: var(--danger-color); }
+        .patient-stat-value.planned { color: var(--success-color); }
+        .patient-stat-value.self { color: var(--warning-color); }
+        .patient-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* Таблица сравнения структур */
+        .comparison-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+        
+        .comparison-card table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 500px;
+        }
+        
+        .comparison-card th {
+            background: var(--accent-light);
+            color: var(--accent-color);
+            font-weight: 800;
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+        }
+        
+        .comparison-card td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        
+        .comparison-card tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-card tr:hover {
+            background: var(--bg-body);
+        }
+        
+        .comparison-card td:first-child {
+            font-weight: 700;
+            color: var(--text-primary);
+            background: var(--bg-body);
+        }
+        
+        .stars {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-align: center;
+            display: block;
+        }
+        
+        .stars.best { color: var(--success-color); }
+        .stars.good { color: var(--accent-color); }
+        .stars.avg { color: var(--warning-color); }
+        .stars.poor { color: var(--danger-color); }
+        
+        .table-legend {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .legend-stars {
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        /* Кнопка скачивания */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--success-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 15px;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+        }
+
+        /* Сворачиваемый блок */
+        details {
+            background: var(--bg-body);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--accent-color);
+            outline: none;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before {
+            content: "▶ ";
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 600px) {
+            .patient-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .study-stats {
+                grid-template-columns: 1fr;
+            }
+            .comparison-card table {
+                font-size: 0.8rem;
+            }
+            .comparison-card th,
+            .comparison-card td {
+                padding: 8px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -481,7 +657,205 @@
             <p>Цифровой архив и наблюдения</p>
         </header>
 
-        <!-- 🔹 НОВЫЙ БЛОК: 31 марта 2026 - Диаграмма алгоритма -->
+        <!-- 🔹 НОВЫЙ БЛОК: 1 апреля 2026 - Дерево приемного покоя -->
+        <article class="card">
+            <span class="date-label">1 апреля 2026</span>
+            <h2>🏥 Генератор дерева приемного покоя</h2>
+            <p>Python-скрипт для генерации и визуализации многомерного массива пациентов (без внешних зависимостей):</p>
+            
+            <!-- Статистика пациентов -->
+            <div class="patient-stats">
+                <div class="patient-stat-box">
+                    <span class="patient-stat-value total">5</span>
+                    <span class="patient-stat-label">Всего</span>
+                </div>
+                <div class="patient-stat-box">
+                    <span class="patient-stat-value emergency">3</span>
+                    <span class="patient-stat-label">Экстренных 🔴</span>
+                </div>
+                <div class="patient-stat-box">
+                    <span class="patient-stat-value planned">1</span>
+                    <span class="patient-stat-label">Плановых 🟢</span>
+                </div>
+                <div class="patient-stat-box">
+                    <span class="patient-stat-value self">1</span>
+                    <span class="patient-stat-label">Самолечение 🟡</span>
+                </div>
+            </div>
+            
+            <!-- ASCII дерево -->
+            <div class="tree-container" style="margin-top: 20px;">
+                <div class="tree-title">🌲 Дерево приемного покоя (ASCII)</div>
+                <pre style="background: transparent; border: none; padding: 0; font-size: 0.82rem; line-height: 1.35; color: var(--text-primary); margin: 0;">
+┌────────────────────────────────────────┐
+│           🏥 ПРИЕМНЫЙ ПОКОЙ            │
+│    Городская клиническая больница №1   │
+└────────────────────────────────────────┘
+│
+├──────────────────┼──────────────────┤
+                   │
+┌────────────────────────────────────────┐
+│            ПАЦИЕНТ #001                │
+│         ⏰ 01.04.2026 08:30            │
+│      👤 Иванов Сергей Петрович         │
+│        🎂 45 лет (15.03.1981)          │
+│         🏥 Острый аппендицит           │
+│     🔴 Экстренная госпитализация       │
+│     🚑 Скорая помощь (бригада №5)      │
+└────────────────────────────────────────┘
+                   │
+├──────────────────┼──────────────────┤
+                   │
+┌────────────────────────────────────────┐
+│            ПАЦИЕНТ #002                │
+│         ⏰ 01.04.2026 09:15            │
+│     👤 Петрова Анна Михайловна         │
+│        🎂 32 года (22.08.1993)         │
+│    🏥 Пневмония (правосторонняя)       │
+│     🟢 Плановая госпитализация         │
+│     📄 Терапевт поликлиники №3         │
+└────────────────────────────────────────┘
+                   │
+├──────────────────┼──────────────────┤
+                   │
+┌────────────────────────────────────────┐
+│            ПАЦИЕНТ #003                │
+│         ⏰ 01.04.2026 10:00            │
+│  👤 Сидоров Владимир Александрович     │
+│        🎂 67 лет (03.12.1958)          │
+│       🏥 Гипертонический криз          │
+│     🔴 Экстренная госпитализация       │
+│     🚑 Скорая помощь (бригада №2)      │
+└────────────────────────────────────────┘
+                   │
+├──────────────────┼──────────────────┤
+                   │
+┌────────────────────────────────────────┐
+│            ПАЦИЕНТ #004                │
+│         ⏰ 01.04.2026 10:45            │
+│     👤 Козлова Елена Дмитриевна        │
+│        🎂 28 лет (10.05.1997)          │
+│ 🏥 Перелом лучевой кости (закрытый)    │
+│   🟡 Госпитализация самолечением       │
+│   📄 Самостоятельно (травмпункт)       │
+└────────────────────────────────────────┘
+                   │
+└──────────────────┬──────────────────┘
+                   │
+┌────────────────────────────────────────┐
+│            ПАЦИЕНТ #005                │
+│         ⏰ 01.04.2026 11:20            │
+│      👤 Новиков Артем Игоревич         │
+│        🎂 8 лет (18.01.2018)           │
+│    🏥 Острый тонзиллит (ангина)        │
+│     🔴 Экстренная госпитализация       │
+│     🚑 Скорая помощь (бригада №7)      │
+└────────────────────────────────────────┘
+                </pre>
+            </div>
+            
+            <!-- Компактный вид (сворачиваемый) -->
+            <details>
+                <summary>📋 Компактный список пациентов</summary>
+                <div class="tree-container" style="margin-top: 12px; background: white;">
+                    <pre style="background: transparent; border: none; padding: 0; font-size: 0.85rem; line-height: 1.5; margin: 0;">
+🏥 ПРИЕМНЫЙ ПОКОЙ — ГКБ №1
+📅 01.04.2026 11:58 | 👥 5 пациентов
+
+┌────────────────────────────────┐
+│     🏥 ПРИЕМНЫЙ ПОКОЙ          │
+└────────────────────────────────┘
+                │
+                ├─────┬─────┬─────┬─────┬─────
+                │
+                🔴 #001 | Иванов С.П. | Аппендицит | 08:30
+                🟢 #002 | Петрова А.М. | Пневмония | 09:15
+                🔴 #003 | Сидоров В.А. | Гипертония | 10:00
+                🟡 #004 | Козлова Е.Д. | Перелом | 10:45
+                🔴 #005 | Новиков А.И. | Ангина | 11:20
+                    </pre>
+                </div>
+            </details>
+            
+            <!-- Таблица сравнения структур данных -->
+            <div class="comparison-card">
+                <div class="tree-title" style="border-bottom: 2px solid var(--border-color);">
+                    📊 Сравнение структур данных
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Критерий</th>
+                            <th>Вложенный список</th>
+                            <th>Массив/JSON</th>
+                            <th>Словарь + очередь</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Производительность</td>
+                            <td><span class="stars poor">⭐⭐</span></td>
+                            <td><span class="stars avg">⭐⭐⭐</span></td>
+                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
+                        </tr>
+                        <tr>
+                            <td>Память</td>
+                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
+                            <td><span class="stars good">⭐⭐⭐⭐</span></td>
+                            <td><span class="stars avg">⭐⭐⭐</span></td>
+                        </tr>
+                        <tr>
+                            <td>Гибкость</td>
+                            <td><span class="stars poor">⭐⭐</span></td>
+                            <td><span class="stars good">⭐⭐⭐⭐</span></td>
+                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
+                        </tr>
+                        <tr>
+                            <td>Простота</td>
+                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
+                            <td><span class="stars good">⭐⭐⭐⭐</span></td>
+                            <td><span class="stars avg">⭐⭐⭐</span></td>
+                        </tr>
+                        <tr>
+                            <td>Универсальность</td>
+                            <td><span class="stars poor">⭐⭐</span></td>
+                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
+                            <td><span class="stars good">⭐⭐⭐⭐</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table-legend">
+                    <div class="legend-item"><span class="legend-stars best">⭐⭐⭐⭐⭐</span> Отлично</div>
+                    <div class="legend-item"><span class="legend-stars good">⭐⭐⭐⭐</span> Хорошо</div>
+                    <div class="legend-item"><span class="legend-stars avg">⭐⭐⭐</span> Средне</div>
+                    <div class="legend-item"><span class="legend-stars poor">⭐⭐</span> Низко</div>
+                </div>
+            </div>
+            
+            <!-- Особенности реализации -->
+            <div class="model-insight" style="margin-top: 20px;">
+                💡 <strong>Особенности реализации:</strong><br>
+                • <strong>Без зависимостей:</strong> только стандартная библиотека Python<br>
+                • <strong>Три формата вывода:</strong> ASCII с цветами, простой, компактный<br>
+                • <strong>ANSI-цвета:</strong> 🔴 экстренные, 🟢 плановые, 🟡 самолечение<br>
+                • <strong>Экспорт:</strong> сохранение дерева в текстовый файл .txt<br>
+                • <strong>Масштабируемость:</strong> легко добавить новых пациентов
+            </div>
+            
+            <!-- Рекомендация -->
+            <div class="model-insight" style="margin-top: 15px; background: linear-gradient(135deg, #ebf4ff, #f0f9ff); border-color: #4c51bf;">
+                🎯 <strong>Рекомендация:</strong><br>
+                Для задачи «Приемный покой» оптимален вариант <strong>«Массив/JSON»</strong> — баланс производительности и универсальности.<br>
+                Если нужен частый поиск по ID — выбирайте <strong>«Словарь + очередь»</strong>.
+            </div>
+            
+            <!-- Кнопка скачивания -->
+            <div style="text-align: center;">
+                <a href="#" class="download-btn">📄 Скачать hospital_tree.py</a>
+            </div>
+        </article>
+
+        <!-- 🔹 БЛОК: 31 марта 2026 - Диаграмма алгоритма -->
         <article class="card">
             <span class="date-label">31 марта 2026</span>
             <h2>📊 Диаграмма: Алгоритм обучения нейронной сети</h2>
@@ -509,7 +883,7 @@
             </div>
         </article>
 
-        <!-- 🔹 НОВЫЙ БЛОК: 23 марта 2026 - Нейросеть с новым признаком -->
+        <!-- 🔹 БЛОК: 23 марта 2026 - Нейросеть с новым признаком -->
         <article class="card">
             <span class="date-label">23 марта 2026</span>
             <h2>🧠 Нейросеть: Эксперимент с признаками</h2>
