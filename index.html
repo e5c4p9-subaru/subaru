@@ -472,8 +472,49 @@
             line-height: 1.6;
         }
 
-        /* ===== НОВЫЕ СТИЛИ ДЛЯ БЛОКА 1 АПРЕЛЯ ===== */
+        /* ===== СТИЛИ ДЛЯ БЛОКА БАЗЫ ДАННЫХ ===== */
         
+        .diagram-frame {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .diagram-frame img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        
+        .db-description {
+            background: linear-gradient(135deg, var(--accent-light), #f0f9ff);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        .db-description h3 {
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .db-description ul {
+            margin-left: 20px;
+            color: var(--text-secondary);
+        }
+        
+        .db-description li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
         /* Статистика пациентов */
         .patient-stats {
             display: grid;
@@ -656,6 +697,53 @@
             <h1>DevLog 2026</h1>
             <p>Цифровой архив и наблюдения</p>
         </header>
+
+        <!-- 🔹 НОВЫЙ БЛОК: 4 апреля 2026 - База данных -->
+        <article class="card">
+            <span class="date-label">4 апреля 2026</span>
+            <h2>🗄️ База данных: Иерархическая модель медицинской системы</h2>
+            <p>Разработка иерархической модели данных для учета пациентов, хирургов и операций:</p>
+            
+            <!-- Диаграмма -->
+            <div class="diagram-frame">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIi8+CiAgPHRleHQgeD0iNDAiIHk9IjQwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIj7QodC+0LzQu9GM0L3QvtGB0YLQvtCyPC90ZXh0PgogIDxyZWN0IHg9IjQwIiB5PSI1MCIgd2lkdGg9IjM4MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHRleHQgeD0iNTAiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiPtCh8LzQvtC80LAg0LHQtdC90YDQvtCy8L2I+PC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSI+0JzQvtGA0L7QvNC40Lkg0LHQtdC90YDQvtCyPC90ZXh0PgogIDx0ZXh0IHg9IjMyMCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSI+0JDQvdC+0YHQutC+0LAg0LHQtdC90YDQvtCyPC90ZXh0PgogIDx0ZXh0IHg9IjYyMCIgeT0iNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiPtCY0LXQvdC+0LvRjzwvdGV4dD4KICA8cmVjdCB4PSI1NzAiIHk9IjUwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8dGV4dCB4PSI1ODAiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiPtCh8LzQvtC80YAg0LHQtdC90L7QvNC4INCc0L7QvdC+0LvRjzwvdGV4dD4KICA8dGV4dCB4PSI3MzAiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiPtCc0L7QvdC+0LvRjyDQmNC10L3QvtC70Y88L3RleHQ+CiAgPHRleHQgeD0iNjIwIiB5PSIxNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiPtCY0LXQvdC+0LvRjzwvdGV4dD4KICA8cmVjdCB4PSI0ODAiIHk9IjE1MCIgd2lkdGg9IjUyMCIgaGVpZ2h0PSI2MCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHRleHQgeD0iNDkwIiB5PSIxNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCI+0JLQvtC80LAg0LHQtdC90YDQvtCyPC90ZXh0PgogIDx0ZXh0IHg9IjU5MCIgeT0iMTcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiPtCU0LXQvdC+0LvRjzwvdGV4dD4KICA8dGV4dCB4PSI2ODAiIHk9IjE3MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIj7QodC+0YDQvtC70LXQvdC40LUg0L7QvdC40YAg0L/RgNC+0LvQtdC90Lgg0LHQtdC90YDQvtCyPC90ZXh0PgogIDx0ZXh0IHg9IjkyMCIgeT0iMTcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiPtCf0L7QvdC+0LvRjyDQmNC10L3QvtC70Y88L3RleHQ+CiAgPHRleHQgeD0iNDAiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCI+0JjQtdC90L7Qu9GPPC90ZXh0PgogIDxyZWN0IHg9IjQwIiB5PSIyOTAiIHdpZHRoPSI1MjAiIGhlaWdodD0iNjAiIGZpbGw9IndoaXRlIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIvPgogIDx0ZXh0IHg9IjUwIiB5PSIzMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCI+0JLQvtC80LAg0LHQtdC90YDQvtCyPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMzEwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiPtCU0LXQvdC+0LvRjzwvdGV4dD4KICA8dGV4dCB4PSIyNDAiIHk9IjMxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIj7QodC+0YDQvtC70LXQvdC40LUg0L/RgNC+0LvQtdC90LAg0L/RgNC+0LvQtdC90Lwg0LHQtdC90YDQvtCyPC90ZXh0PgogIDx0ZXh0IHg9IjQ4MCIgeT0iMzEwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiPtCf0L7QvdC+0LvRjyDQmNC10L3QvtC70Y88L3RleHQ+CiAgPHRleHQgeD0iMjAwIiB5PSIzODAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzY2NiI+0J/QvtC80LzQu9C+0YHRgtC+0L06INCc0L7QvdC+0LvRjyDin6gg0JjQtdC90L7Qu9GPPC90ZXh0PgogIDx0ZXh0IHg9IjYyMCIgeT0iMjQwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM2NjYiPtCf0L7QvNC70L7RgdGC0L7Qnjog0JjQtdC90L7Qu9GPIOKfniDQmNC10L3QvtC70Y88L3RleHQ+Cjwvc3ZnPg==" alt="Иерархическая модель базы данных">
+            </div>
+            
+            <div class="db-description">
+                <h3>📋 Описание модели:</h3>
+                <ul>
+                    <li><strong>ПАЦИЕНТ:</strong> номер, имя, адрес</li>
+                    <li><strong>ХИРУРГ:</strong> номер патента, имя</li>
+                    <li><strong>ОПЕРАЦИЯ:</strong> дата, тип операции, препарат, побочный эффект</li>
+                    <li><strong>Связи:</strong> Пациент → Операция, Хирург → Операция</li>
+                </ul>
+            </div>
+            
+            <!-- Данные -->
+            <div class="tree-container" style="margin-top: 20px;">
+                <div class="tree-title">📊 Примеры данных</div>
+                <pre style="background: transparent; border: none; padding: 0; font-size: 0.85rem; line-height: 1.5; margin: 0;">
+<strong>ПАЦИЕНТ #P-7891</strong>
+  Имя: Козлова Елена Дмитриевна
+  Адрес: г. Москва, ул. Ленина, д. 45, кв. 12
+  
+<strong>ХИРУРГ #NEU-2019-4521</strong>
+  Имя: Иванов Сергей Петрович
+  
+<strong>ОПЕРАЦИЯ (2024-04-01 10:30)</strong>
+  Тип: Микродискэктомия L4-L5
+  Препарат: Диклофенак 75 мг, Омепразол 20 мг
+  Побочный эффект: Лёгкая тошнота (купирована)
+                </pre>
+            </div>
+            
+            <div class="model-insight">
+                💡 <strong>Особенности:</strong><br>
+                • Иерархическая структура с двумя представлениями<br>
+                • Связи «один-ко-многим» между сущностями<br>
+                • Поддержка истории операций и назначений
+            </div>
+        </article>
 
         <!-- 🔹 НОВЫЙ БЛОК: 1 апреля 2026 - Дерево приемного покоя -->
         <article class="card">
