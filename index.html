@@ -672,6 +672,73 @@
             transform: rotate(90deg);
         }
 
+        /* ===== СТИЛИ ДЛЯ ТАБЛИЦЫ С КОДАМИ ===== */
+        .codes-table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .codes-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.85rem;
+            background: var(--code-bg);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .codes-table th {
+            background: var(--accent-light);
+            color: var(--accent-color);
+            font-weight: 800;
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            white-space: nowrap;
+        }
+        
+        .codes-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        
+        .codes-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .codes-table tr:hover {
+            background: var(--bg-body);
+        }
+        
+        .codes-table td:first-child {
+            font-weight: 700;
+            color: var(--text-primary);
+            background: rgba(247, 250, 252, 0.8);
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .codes-table .formula {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .codes-table .answer {
+            font-weight: 700;
+            color: var(--success-color);
+            white-space: nowrap;
+        }
+        
+        .codes-table .topic {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
         /* Адаптивность для мобильных */
         @media (max-width: 600px) {
             .patient-stats {
@@ -687,6 +754,13 @@
             .comparison-card td {
                 padding: 8px 10px;
             }
+            .codes-table {
+                font-size: 0.75rem;
+            }
+            .codes-table th,
+            .codes-table td {
+                padding: 8px 10px;
+            }
         }
     </style>
 </head>
@@ -698,7 +772,198 @@
             <p>Цифровой архив и наблюдения</p>
         </header>
 
-        <!-- 🔹 НОВЫЙ БЛОК: 18 мая 2026 - Программирование в Квене -->
+        <!-- 🔹 НОВЫЙ БЛОК: 20 мая 2026 - Таблица с кодами -->
+        <article class="card">
+            <span class="date-label">20 мая 2026</span>
+            <h2>📊 Таблица с кодами</h2>
+            <p>Сборник задач по двоичному кодированию, комбинаторике и их применению в медицинской информатике:</p>
+            
+            <div class="codes-table-container">
+                <table class="codes-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Тема</th>
+                            <th>Формула</th>
+                            <th>Ответ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="topic">Оценка сознания</td>
+                            <td class="formula">2⁴ = 2 × 2 × 2 × 2</td>
+                            <td class="answer">16 комбинаций</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="topic">Контрольные листы процедур</td>
+                            <td class="formula">2⁵ = 2 × 2 × 2 × 2 × 2</td>
+                            <td class="answer">32 варианта</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="topic">Сигналы тревоги монитора</td>
+                            <td class="formula">2³ = 2 × 2 × 2</td>
+                            <td class="answer">8 комбинаций</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="topic">Проверка при введении лекарства</td>
+                            <td class="formula">2⁶ = 2 × 2 × 2 × 2 × 2 × 2</td>
+                            <td class="answer">64 комбинации</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="topic">Двоичный код симптомов</td>
+                            <td class="formula">Код = [С₁][С₂][С₃][С₄], где 1 = есть, 0 = нет. Позиции: С₁–Боль, С₂–Тошнота, С₃–Головокружение, С₄–Слабость. Для кода 1010: 1→С₁, 0→С₂, 1→С₃, 0→С₄</td>
+                            <td class="answer">Боль и головокружение</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="topic">Инфузомат: режимы работы</td>
+                            <td class="formula">2⁴ − 1 = 16 − 1</td>
+                            <td class="answer">15 конфигураций</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="topic">Двоичная запись температуры</td>
+                            <td class="formula">N₁₀ → N₂: последовательное деление на 2, запись остатков в обратном порядке <br> N₂ = Σ(dᵢ × 2ⁱ), где dᵢ — цифра на позиции i (справа налево, с 0)</td>
+                            <td class="answer">37₁₀ = 100101₂<br>38₁₀ = 100110₂<br>39₁₀ = 100111₂</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="topic">Перевод двоичного кода пациента</td>
+                            <td class="formula">N₁₀ = Σ(dᵢ × 2ⁱ), где dᵢ — цифра на позиции i (справа налево, начиная с 0). Для 10110₂: 1×2⁴ + 0×2³ + 1×2² + 1×2¹ + 0×2⁰</td>
+                            <td class="answer">22</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="topic">Комбинации препаратов</td>
+                            <td class="formula">N = 2ⁿ − 1, где n = 5 (число препаратов), вычитается 1 случай, когда все препараты = 0 (ни одного не назначено)</td>
+                            <td class="answer">31 комбинация</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="topic">Факторы риска пролежней</td>
+                            <td class="formula">N = Σ C₆ᵏ (k=3..6) или N = 2⁶ − (C₆⁰ + C₆¹ + C₆²)</td>
+                            <td class="answer">42 комбинации</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="topic">Двоичный журнал дежурств</td>
+                            <td class="formula">N = 2ⁿ, где n = 8 (количество часов), каждый час имеет 2 независимых состояния (0 или 1)</td>
+                            <td class="answer">256 вариантов</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td class="topic">Тест-полоски: комбинация результатов</td>
+                            <td class="formula">1) N = 2ⁿ, где n = 4 (число параметров), каждый параметр имеет 2 состояния: 1 (положительно) или 0 (отрицательно) <br> 2) N₀ = 1 (единственная комбинация, где все параметры = 0: 0000)</td>
+                            <td class="answer">1) 16 комбинаций<br>2) 1 комбинация</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td class="topic">Настройки кислородного концентратора</td>
+                            <td class="formula">N = N_поток × 2ⁿ, где N_поток = 3 (выбор ровно одного потока из трёх), n = 2 (независимые бинарные настройки: увлажнение и тревога)</td>
+                            <td class="answer">12 режимов</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td class="topic">Двоичный код экстренной ситуации</td>
+                            <td class="formula">Код = [Б₁][Б₂][Б₃][Б₄][Б₅], где 1 = признак есть, 0 = нет. Позиции: Б₁–Дыхание, Б₂–Пульс, Б₃–Сознание, Б₄–Кровотечение, Б₅–Травма. Для 11010: 1→Б₁, 1→Б₂, 0→Б₃, 1→Б₄, 0→Б₅</td>
+                            <td class="answer">Дыхание: есть<br>Пульс: есть<br>Сознание: нет<br>Кровотечение: есть<br>Травма: нет</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td class="topic">Комбинации доступов для инфузии</td>
+                            <td class="formula">N = 2ⁿ − 1, где n = 4 (число типов доступов), вычитается 1 случай, когда все доступы = 0 (ни одного не используется)</td>
+                            <td class="answer">15 комбинаций</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td class="topic">Двоичное представление дозы</td>
+                            <td class="formula">N_max = 2ⁿ − 1, где n = 6 (число бит). Максимальный двоичный код: 111111₂</td>
+                            <td class="answer">63 единицы</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td class="topic">Проверка оборудования перед сменой</td>
+                            <td class="formula">N = C₇⁰ + C₇¹ = 1 + 7</td>
+                            <td class="answer">8 комбинаций</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td class="topic">Генетический скрининг</td>
+                            <td class="formula">C(n,k) = n! / (k! × (n-k)!), где n=8, k=3</td>
+                            <td class="answer">56 комбинаций</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td class="topic">Двоичный шифр пациента в базе</td>
+                            <td class="formula">N = 2ⁿ, где n = 10 (число бит). Диапазон значений: от 0 (0000000000₂) до 1023 (1111111111₂)</td>
+                            <td class="answer">1024 пациента</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td class="topic">Комбинации симптомов для диагноза</td>
+                            <td class="formula">N = C(5,3) + C(5,4) + C(5,5)</td>
+                            <td class="answer">16 комбинаций</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td class="topic">Двоичное дерево решений</td>
+                            <td class="formula">N = 2ⁿ, где n = 5 (каждый вопрос делит текущую ветвь на 2)</td>
+                            <td class="answer">32 пути</td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td class="topic">Кодирование группы крови и резуса</td>
+                            <td class="formula">N = N_группа × N_резус, где N_группа = 2² = 4, N_резус = 2¹ = 2 → N = 4 × 2 = 8</td>
+                            <td class="answer">8 комбинаций</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td class="topic">Мониторинг жизненных показателей</td>
+                            <td class="formula">1) N = 2ⁿ, где n = 8 (количество замеров), каждый замер имеет 2 состояния: 1 (норма) или 0 (отклонение)<br>2) N₀ = 1 (единственная комбинация, где все 8 значений = 1: 11111111)</td>
+                            <td class="answer">1) 256 вариантов<br>2) 1 вариант</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td class="topic">Двоичная проверка совместимости препаратов</td>
+                            <td class="formula">N = 2ⁿ − (Cₙ⁰ + Cₙ¹), где n = 6. Вычитаются случаи с 0 и 1 совместимым препаратом</td>
+                            <td class="answer">57 комбинаций</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td class="topic">Система оповещения: двоичный код приоритета</td>
+                            <td class="formula">1) N = 2ⁿ, где n = 4 (число бит приоритета), каждый бит имеет 2 состояния: 0 или 1<br>2) Код = [Б₁][Б₂][Б₃][Б₄], где 1 = признак есть, 0 = нет. Позиции: Б₁–Угроза жизни, Б₂–Срочность, Б₃–Инфекционность, Б₄–Изоляция. Дано: Б₁=1, Б₃=1, остальные=0 → 1010</td>
+                            <td class="answer">1) 16 уровней<br>2) 1010₂</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="model-insight">
+                💡 <strong>Примечание:</strong> Все задачи основаны на принципах двоичной логики, комбинаторики и теории вероятностей. 
+                Применение в медицине: кодирование симптомов, расчёт комбинаций препаратов, оценка рисков, шифрование данных пациентов.
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://github.com/e5c4p9-subaru/subaru/blob/main/%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%2020%20%D0%BC%D0%B0%D1%8F%202026.odt" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="download-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Открыть исходный файл на GitHub
+                </a>
+            </div>
+        </article>
+
+        <!-- 🔹 БЛОК: 18 мая 2026 - Программирование в Квене -->
         <article class="card">
             <span class="date-label">18 мая 2026</span>
             <h2>💻 Программирование в Квене 2026</h2>
