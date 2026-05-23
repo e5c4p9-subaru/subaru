@@ -772,6 +772,123 @@
             <p>Цифровой архив и наблюдения</p>
         </header>
 
+        <!-- 🔹 БЛОК: 23 мая 2026 - Прямоугольник в Кумир -->
+        <article class="card">
+            <span class="date-label">23 мая 2026</span>
+            <h2>🐢 Графика Черепахи: Прямоугольник в Кумир</h2>
+            <p>Программа на языке Кумир (Kumir) для рисования прямоугольника с использованием исполнителя «Черепаха»:</p>
+            
+            <!-- Исходный код -->
+            <pre><code><span class="highlight">использовать</span> Черепаха
+
+<span class="highlight">алг</span> Прямоугольник
+
+<span class="highlight">нач</span>
+    опустить хвост
+
+    нц <span class="highlight">2</span> раз
+        вперед(<span class="highlight">200</span>)
+        вправо(<span class="highlight">90</span>)
+        вперед(<span class="highlight">100</span>)
+        вправо(<span class="highlight">90</span>)
+    кц
+
+<span class="highlight">кон</span></code></pre>
+            
+            <!-- Описание алгоритма -->
+            <div class="algorithm-description" style="margin: 20px 0;">
+                <h3>📝 Как работает программа:</h3>
+                <ul>
+                    <li><strong>использовать Черепаха</strong> — подключение модуля графического исполнителя</li>
+                    <li><strong>алг Прямоугольник</strong> — объявление алгоритма с именем «Прямоугольник»</li>
+                    <li><strong>опустить хвост</strong> — включение режима рисования: при движении черепаха оставляет след</li>
+                    <li><strong>нц 2 раз ... кц</strong> — цикл повторения 2 раза (достаточно для замкнутого прямоугольника)</li>
+                    <li><strong>вперед(200)</strong> — движение вперёд на 200 шагов (длинная сторона прямоугольника)</li>
+                    <li><strong>вправо(90)</strong> — поворот направо на 90 градусов</li>
+                    <li><strong>вперед(100)</strong> — движение вперёд на 100 шагов (короткая сторона прямоугольника)</li>
+                    <li><strong>вправо(90)</strong> — повторный поворот для продолжения контура</li>
+                    <li><strong>кон</strong> — завершение алгоритма</li>
+                </ul>
+            </div>
+            
+            <!-- Параметры фигуры -->
+            <div class="math-grid" style="margin: 25px 0;">
+                <div class="math-box">
+                    <span class="math-val">200</span>
+                    <span class="math-char">длина</span>
+                </div>
+                <div class="math-box">
+                    <span class="math-val">100</span>
+                    <span class="math-char">ширина</span>
+                </div>
+                <div class="math-box">
+                    <span class="math-val">90°</span>
+                    <span class="math-char">угол</span>
+                </div>
+                <div class="math-box">
+                    <span class="math-val">2</span>
+                    <span class="math-char">итерации</span>
+                </div>
+            </div>
+            
+            <!-- ASCII-визуализация результата -->
+            <div class="tree-container" style="margin: 20px 0;">
+                <div class="tree-title">🖼️ Результат выполнения (схема)</div>
+                <pre style="background: transparent; border: none; padding: 0; font-size: 1rem; line-height: 1.4; margin: 0; text-align: center;">
+    ┌────────────────────────────┐
+    │                            │
+    │                            │ 100 шагов
+    │                            │
+    └────────────────────────────┘
+              200 шагов
+                </pre>
+            </div>
+            
+            <!-- Блок с результатом -->
+            <div class="model-insight">
+                💡 <strong>Результат выполнения:</strong><br>
+                ✅ Черепаха рисует замкнутый прямоугольник размером <strong>200×100 шагов</strong><br>
+                📍 Начальная позиция: центр экрана, направление — вверх (по умолчанию)<br>
+                🔄 После выполнения: Черепаха возвращается в исходную точку, ориентация сохранена<br>
+                🎨 Линия рисуется непрерывно, так как хвост опущен перед началом движения
+            </div>
+            
+            <!-- Ссылка на исходный файл -->
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="https://github.com/e5c4p9-subaru/subaru/blob/main/Pryamougolnik203%D1%81.kum" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="download-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    Открыть исходный файл на GitHub
+                </a>
+            </div>
+            
+            <!-- Дополнительная информация -->
+            <details style="margin-top: 20px;">
+                <summary>🔧 Возможные модификации программы</summary>
+                <ul style="margin: 12px 0 0 20px; color: var(--text-secondary); line-height: 1.8;">
+                    <li><strong>Изменить размеры:</strong> замените <code>200</code> и <code>100</code> на нужные значения</li>
+                    <li><strong>Нарисовать квадрат:</strong> установите одинаковые значения: <code>вперед(150)</code> дважды</li>
+                    <li><strong>Добавить цвет:</strong> перед <code>опустить хвост</code> добавьте <code>цвет(красный)</code></li>
+                    <li><strong>Сместить начало:</strong> добавьте <code>сместиться(х, у)</code> в начале алгоритма</li>
+                    <li><strong>Нарисовать несколько фигур:</strong> оберните весь код в дополнительный цикл <code>нц N раз</code></li>
+                    <li><strong>Изменить угол:</strong> для ромба используйте <code>вправо(60)</code> и <code>вправо(120)</code></li>
+                </ul>
+            </details>
+            
+            <!-- Примечание по синтаксису Кумир -->
+            <div class="model-insight" style="margin-top: 15px; background: linear-gradient(135deg, #f0f9ff, #ebf4ff); border-color: #667eea;">
+                📚 <strong>Синтаксис Кумир — кратко:</strong><br>
+                • Ключевые слова: <code>алг</code>, <code>нач</code>, <code>кон</code>, <code>нц</code>, <code>кц</code> — пишутся строчными буквами<br>
+                • Комментарии: начинаются с <code>|</code> или заключаются в <code>{ }</code><br>
+                • Отступы: не обязательны, но рекомендуются для читаемости<br>
+                • Имена алгоритмов: пишутся слитно, с заглавной буквы, без пробелов
+            </div>
+        </article>
+
         <!-- 🔹 НОВЫЙ БЛОК: 20 мая 2026 - Таблица с кодами -->
         <article class="card">
             <span class="date-label">20 мая 2026</span>
