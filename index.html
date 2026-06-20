@@ -739,6 +739,64 @@
             color: var(--text-primary);
         }
 
+        /* ===== СТИЛИ ДЛЯ БЛОКА С КРОССВОРДАМИ ===== */
+        .crossword-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .crossword-link-card {
+            background: linear-gradient(135deg, var(--accent-light), #f7fafc);
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+        }
+        
+        .crossword-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(76, 81, 191, 0.2);
+            border-color: #667eea;
+        }
+        
+        .crossword-icon {
+            font-size: 3rem;
+            line-height: 1;
+        }
+        
+        .crossword-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+        
+        .crossword-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        
+        .crossword-badge {
+            display: inline-block;
+            background: var(--success-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* Адаптивность для мобильных */
         @media (max-width: 600px) {
             .patient-stats {
@@ -761,6 +819,9 @@
             .codes-table td {
                 padding: 8px 10px;
             }
+            .crossword-links {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -771,6 +832,116 @@
             <h1>DevLog 2026</h1>
             <p>Цифровой архив и наблюдения</p>
         </header>
+
+        <!-- 🔹 НОВЫЙ БЛОК: 20 июня 2026 - Кроссворды и презентация -->
+        <article class="card">
+            <span class="date-label">20 июня 2026</span>
+            <h2>🧩 Интерактивные кроссворды и презентация</h2>
+            <p>Созданы два интерактивных кроссворда на медицинские темы и обновлена презентация по программированию. Кроссворды поддерживают проверку ответов, навигацию стрелками и автоматический переход между ячейками.</p>
+            
+            <!-- Блок с ссылками на кроссворды -->
+            <div class="crossword-links">
+                <a href="krossvordRU.html" class="crossword-link-card">
+                    <span class="crossword-icon">🧬</span>
+                    <span class="crossword-title">Кроссворд «Анатомия»</span>
+                    <span class="crossword-desc">10 слов на тему строения и органов человеческого тела</span>
+                    <span class="crossword-badge">✓ Рабочий</span>
+                </a>
+                <a href="krossvordFa.html" class="crossword-link-card">
+                    <span class="crossword-icon">💊</span>
+                    <span class="crossword-title">Кроссворд «Фармакология»</span>
+                    <span class="crossword-desc">5 слов на тему лекарственных средств и аптечного дела</span>
+                    <span class="crossword-badge">✓ Рабочий</span>
+                </a>
+            </div>
+            
+            <!-- Описание функциональности кроссвордов -->
+            <div class="model-insight">
+                💡 <strong>Возможности кроссвордов:</strong><br>
+                • <strong>Интерактивный ввод:</strong> в каждой ячейке — поле для одной буквы<br>
+                • <strong>Авто-переход:</strong> после ввода буквы фокус автоматически переходит к следующей ячейке<br>
+                • <strong>Навигация:</strong> стрелки клавиатуры работают корректно<br>
+                • <strong>Проверка:</strong> кнопка «Проверить» подсвечивает правильные буквы зелёным, ошибки — красным<br>
+                • <strong>Подсказки:</strong> отдельные списки для слов по горизонтали и вертикали<br>
+                • <strong>Дополнительно:</strong> кнопки «Показать ответы» и «Очистить»<br>
+                • <strong>Адаптивность:</strong> корректно отображается на мобильных устройствах
+            </div>
+            
+            <!-- Блок с презентацией -->
+            <div style="background: var(--accent-light); border: 2px solid var(--accent-color); border-radius: 12px; padding: 20px; margin: 25px 0;">
+                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-color);">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <div style="flex: 1; min-width: 200px;">
+                        <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">📁 Презентация по программированию</strong>
+                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Обновлённые материалы курса с примерами кода</span>
+                    </div>
+                    <a href="https://github.com/e5c4p9-subaru/subaru/blob/main/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5(1).pptx" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="download-btn"
+                       style="background: var(--accent-color); margin-top: 0;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Открыть презентацию
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Ссылки на исходные файлы кроссвордов -->
+            <details style="margin-top: 20px;">
+                <summary>📂 Исходные файлы кроссвордов</summary>
+                <div style="margin: 15px 0; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="https://github.com/e5c4p9-subaru/subaru/blob/main/krossvordRU.html.docx" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        krossvordRU.html (Анатомия)
+                    </a>
+                    <a href="https://github.com/e5c4p9-subaru/subaru/blob/main/krossvordFa.html.docx" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        krossvordFa.html (Фармакология)
+                    </a>
+                </div>
+            </details>
+            
+            <!-- Слова кроссвордов -->
+            <div class="tree-container" style="margin-top: 20px;">
+                <div class="tree-title">📝 Список слов в кроссвордах</div>
+                <pre style="background: transparent; border: none; padding: 0; font-size: 0.85rem; line-height: 1.6; margin: 0;">
+<strong>🧬 КРОССВОРД «АНАТОМИЯ» (10 слов):</strong>
+  По горизонтали: СЕРДЦЕ, ПЕЧЕНЬ, ЖЕЛУДОК, ЧЕРЕП, ПОЗВОНОЧНИК
+  По вертикали:     МОЗГ, ЛЁГКИЕ, ПОЧКА, РЕБРО, МЫШЦА
+
+<strong>💊 КРОССВОРД «ФАРМАКОЛОГИЯ» (5 слов):</strong>
+  По горизонтали: ТАБЛЕТКА, ДОЗА, РЕЦЕПТ
+  По вертикали:     АСПИРИН, АПТЕКА
+                </pre>
+            </div>
+            
+            <div class="model-insight" style="margin-top: 15px; background: linear-gradient(135deg, #f0f9ff, #ebf4ff); border-color: #667eea;">
+                🎯 <strong>Техническая реализация:</strong><br>
+                • Кроссворды созданы на чистом HTML/CSS/JavaScript без внешних библиотек<br>
+                • Используются CSS Grid для построения сетки<br>
+                • JavaScript обрабатывает ввод, навигацию и проверку ответов<br>
+                • Поддержка кириллицы и буквы «Ё»<br>
+                • Файлы можно открыть в любом современном браузере
+            </div>
+        </article>
 
         <!-- 🔹 БЛОК: 23 мая 2026 - Прямоугольник в Кумир -->
         <article class="card">
