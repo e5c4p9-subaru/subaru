@@ -823,6 +823,39 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ===== СТИЛИ ДЛЯ ВСТРОЕННЫХ КРОССВОРДОВ ===== */
+        .embedded-crossword {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: white;
+        }
+        .crossword-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background: var(--accent-light);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+        .crossword-content {
+            display: none;
+        }
+        .crossword-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -841,18 +874,76 @@
             
             <!-- Блок с ссылками на кроссворды -->
             <div class="crossword-links">
-                <a href="krossvordRU.html" class="crossword-link-card">
+                <a href="#anatomy" class="crossword-link-card" onclick="showCrossword('anatomy'); return false;">
                     <span class="crossword-icon">🧬</span>
                     <span class="crossword-title">Кроссворд «Анатомия»</span>
                     <span class="crossword-desc">10 слов на тему строения и органов человеческого тела</span>
                     <span class="crossword-badge">✓ Рабочий</span>
                 </a>
-                <a href="krossvordFa.html" class="crossword-link-card">
+                <a href="#pharma" class="crossword-link-card" onclick="showCrossword('pharma'); return false;">
                     <span class="crossword-icon">💊</span>
                     <span class="crossword-title">Кроссворд «Фармакология»</span>
                     <span class="crossword-desc">5 слов на тему лекарственных средств и аптечного дела</span>
                     <span class="crossword-badge">✓ Рабочий</span>
                 </a>
+            </div>
+            
+            <!-- Встроенные кроссворды -->
+            <div class="embedded-crossword">
+                <div class="crossword-tabs">
+                    <button class="tab-btn active" onclick="showCrossword('anatomy')">🧬 Анатомия</button>
+                    <button class="tab-btn" onclick="showCrossword('pharma')">💊 Фармакология</button>
+                </div>
+                
+                <!-- Кроссворд Анатомия -->
+                <div id="crossword-anatomy" class="crossword-content active">
+                    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+                        <div class="crossword-wrapper">
+                            <div id="grid-anatomy" class="crossword-grid"></div>
+                            <div class="message-box" id="message-anatomy"></div>
+                            <div class="controls">
+                                <button class="btn btn-check" onclick="checkAnswersAnatomy()">✅ Проверить</button>
+                                <button class="btn btn-show" onclick="showAnswersAnatomy()">💡 Показать ответы</button>
+                                <button class="btn btn-clear" onclick="clearGridAnatomy()">🗑️ Очистить</button>
+                            </div>
+                        </div>
+                        <div class="clues-container">
+                            <div class="clues-section">
+                                <h3>По горизонтали ➡️</h3>
+                                <div id="across-clues-anatomy"></div>
+                            </div>
+                            <div class="clues-section">
+                                <h3>По вертикали ⬇️</h3>
+                                <div id="down-clues-anatomy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Кроссворд Фармакология -->
+                <div id="crossword-pharma" class="crossword-content">
+                    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+                        <div class="crossword-wrapper">
+                            <div id="grid-pharma" class="crossword-grid"></div>
+                            <div class="message-box" id="message-pharma"></div>
+                            <div class="controls">
+                                <button class="btn btn-check" onclick="checkAnswersPharma()">✅ Проверить</button>
+                                <button class="btn btn-show" onclick="showAnswersPharma()">💡 Показать ответы</button>
+                                <button class="btn btn-clear" onclick="clearGridPharma()">🗑️ Очистить</button>
+                            </div>
+                        </div>
+                        <div class="clues-container">
+                            <div class="clues-section">
+                                <h3>По горизонтали ➡️</h3>
+                                <div id="across-clues-pharma"></div>
+                            </div>
+                            <div class="clues-section">
+                                <h3>По вертикали ⬇️</h3>
+                                <div id="down-clues-pharma"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- Описание функциональности кроссвордов -->
@@ -891,33 +982,6 @@
                     </a>
                 </div>
             </div>
-            
-            <!-- Ссылки на исходные файлы кроссвордов -->
-            <details style="margin-top: 20px;">
-                <summary>📂 Исходные файлы кроссвордов</summary>
-                <div style="margin: 15px 0; display: flex; flex-direction: column; gap: 10px;">
-                    <a href="https://github.com/e5c4p9-subaru/subaru/blob/main/krossvordRU.html.docx" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="download-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                        </svg>
-                        krossvordRU.html (Анатомия)
-                    </a>
-                    <a href="https://github.com/e5c4p9-subaru/subaru/blob/main/krossvordFa.html.docx" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="download-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                        </svg>
-                        krossvordFa.html (Фармакология)
-                    </a>
-                </div>
-            </details>
             
             <!-- Слова кроссвордов -->
             <div class="tree-container" style="margin-top: 20px;">
@@ -1920,6 +1984,468 @@
         </article>
 
     </div>
+
+    <script>
+        // ========== КРОССВОРД АНАТОМИЯ ==========
+        const WORDS_ANATOMY = [
+            { num: 1, word: "СЕРДЦЕ", dir: "across", startRow: 2, startCol: 3, clue: "Главный орган кровеносной системы" },
+            { num: 2, word: "МОЗГ", dir: "down", startRow: 0, startCol: 5, clue: "Центральный орган нервной системы" },
+            { num: 3, word: "ПЕЧЕНЬ", dir: "across", startRow: 5, startCol: 1, clue: "Крупнейшая железа организма" },
+            { num: 4, word: "ПОЧКА", dir: "down", startRow: 3, startCol: 3, clue: "Орган мочевыделительной системы" },
+            { num: 5, word: "ЖЕЛУДОК", dir: "across", startRow: 7, startCol: 2, clue: "Орган пищеварительной системы" },
+            { num: 6, word: "ЛЁГКИЕ", dir: "down", startRow: 1, startCol: 8, clue: "Органы дыхания" },
+            { num: 7, word: "ЧЕРЕП", dir: "across", startRow: 9, startCol: 4, clue: "Костная оболочка головы" },
+            { num: 8, word: "РЕБРО", dir: "down", startRow: 4, startCol: 6, clue: "Кость грудной клетки" },
+            { num: 9, word: "ПОЗВОНОЧНИК", dir: "across", startRow: 10, startCol: 0, clue: "Опора тела из костей" },
+            { num: 10, word: "МЫШЦА", dir: "down", startRow: 6, startCol: 10, clue: "Орган двигательной системы" }
+        ];
+
+        const ROWS_ANATOMY = 12;
+        const COLS_ANATOMY = 15;
+        let gridDataAnatomy = Array.from({ length: ROWS_ANATOMY }, () => Array(COLS_ANATOMY).fill(null));
+        let activeCellAnatomy = { r: 0, c: 0 };
+
+        function initGridAnatomy() {
+            gridDataAnatomy = Array.from({ length: ROWS_ANATOMY }, () => Array(COLS_ANATOMY).fill(null));
+            WORDS_ANATOMY.forEach(w => {
+                for (let i = 0; i < w.word.length; i++) {
+                    let r = w.startRow + (w.dir === 'down' ? i : 0);
+                    let c = w.startCol + (w.dir === 'across' ? i : 0);
+                    if (!gridDataAnatomy[r][c]) gridDataAnatomy[r][c] = { letter: '', numbers: [] };
+                    gridDataAnatomy[r][c].letter = w.word[i];
+                    if (i === 0) gridDataAnatomy[r][c].numbers.push(w.num);
+                }
+            });
+        }
+
+        function renderGridAnatomy() {
+            const gridEl = document.getElementById('grid-anatomy');
+            gridEl.innerHTML = '';
+            
+            for (let r = 0; r < ROWS_ANATOMY; r++) {
+                for (let c = 0; c < COLS_ANATOMY; c++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    cell.dataset.row = r;
+                    cell.dataset.col = c;
+
+                    if (gridDataAnatomy[r][c]) {
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.maxLength = 1;
+                        input.className = 'cell-input';
+                        input.dataset.row = r;
+                        input.dataset.col = c;
+                        
+                        input.addEventListener('input', handleInputAnatomy);
+                        input.addEventListener('keydown', handleKeyDownAnatomy);
+                        input.addEventListener('focus', () => {
+                            activeCellAnatomy = { r, c };
+                            highlightCluesAnatomy(r, c);
+                        });
+                        cell.appendChild(input);
+
+                        if (gridDataAnatomy[r][c].numbers.length > 0) {
+                            const numSpan = document.createElement('span');
+                            numSpan.className = 'cell-number';
+                            numSpan.textContent = gridDataAnatomy[r][c].numbers.join(',');
+                            cell.appendChild(numSpan);
+                        }
+                    } else {
+                        cell.classList.add('empty');
+                    }
+                    gridEl.appendChild(cell);
+                }
+            }
+        }
+
+        function renderCluesAnatomy() {
+            const acrossEl = document.getElementById('across-clues-anatomy');
+            const downEl = document.getElementById('down-clues-anatomy');
+            
+            acrossEl.innerHTML = '';
+            downEl.innerHTML = '';
+            
+            WORDS_ANATOMY.forEach(w => {
+                const el = document.createElement('div');
+                el.className = 'clue-item';
+                el.dataset.wordNum = w.num;
+                el.innerHTML = `<span class="clue-number">${w.num}.</span> ${w.clue}`;
+                el.onclick = () => focusWordAnatomy(w);
+                
+                if (w.dir === 'across') acrossEl.appendChild(el);
+                else downEl.appendChild(el);
+            });
+        }
+
+        function handleInputAnatomy(e) {
+            const input = e.target;
+            const val = input.value.toUpperCase();
+            
+            const cyrillicPattern = /^[А-ЯЁ]$/;
+            if (val && !cyrillicPattern.test(val)) {
+                input.value = '';
+                return;
+            }
+            
+            input.value = val;
+            if (val) moveFocusAnatomy(1);
+        }
+
+        function handleKeyDownAnatomy(e) {
+            if (e.key === 'ArrowRight') moveFocusAnatomy(1, 'across');
+            else if (e.key === 'ArrowLeft') moveFocusAnatomy(-1, 'across');
+            else if (e.key === 'ArrowDown') moveFocusAnatomy(1, 'down');
+            else if (e.key === 'ArrowUp') moveFocusAnatomy(-1, 'down');
+            else if (e.key === 'Backspace') {
+                e.preventDefault();
+                if (e.target.value === '') moveFocusAnatomy(-1);
+                e.target.value = '';
+            }
+        }
+
+        function moveFocusAnatomy(step, dir = null) {
+            let { r, c } = activeCellAnatomy;
+            let dr = 0, dc = 0;
+            
+            if (dir === 'across') dc = step;
+            else if (dir === 'down') dr = step;
+            else {
+                dc = step; 
+            }
+
+            let nr = r + dr, nc = c + dc;
+            while (nr >= 0 && nr < ROWS_ANATOMY && nc >= 0 && nc < COLS_ANATOMY) {
+                if (gridDataAnatomy[nr][nc]) {
+                    const cell = document.querySelector(`#grid-anatomy .cell-input[data-row="${nr}"][data-col="${nc}"]`);
+                    if (cell) cell.focus();
+                    return;
+                }
+                nr += dr; nc += dc;
+            }
+        }
+
+        function highlightCluesAnatomy(r, c) {
+            document.querySelectorAll('#across-clues-anatomy .clue-item, #down-clues-anatomy .clue-item').forEach(el => el.classList.remove('active'));
+            WORDS_ANATOMY.forEach(w => {
+                const isAcross = w.dir === 'across' && r === w.startRow && c >= w.startCol && c < w.startCol + w.word.length;
+                const isDown = w.dir === 'down' && c === w.startCol && r >= w.startRow && r < w.startRow + w.word.length;
+                if (isAcross || isDown) {
+                    document.querySelector(`.clue-item[data-word-num="${w.num}"]`).classList.add('active');
+                }
+            });
+        }
+
+        function focusWordAnatomy(w) {
+            const input = document.querySelector(`#grid-anatomy .cell-input[data-row="${w.startRow}"][data-col="${w.startCol}"]`);
+            if (input) input.focus();
+        }
+
+        function checkAnswersAnatomy() {
+            let correctCount = 0;
+            const messageEl = document.getElementById('message-anatomy');
+            
+            WORDS_ANATOMY.forEach(w => {
+                let isWordCorrect = true;
+                for (let i = 0; i < w.word.length; i++) {
+                    let r = w.startRow + (w.dir === 'down' ? i : 0);
+                    let c = w.startCol + (w.dir === 'across' ? i : 0);
+                    const input = document.querySelector(`#grid-anatomy .cell-input[data-row="${r}"][data-col="${c}"]`);
+                    
+                    if (input) {
+                        if (input.value.toUpperCase() === w.word[i]) {
+                            input.classList.add('correct');
+                            input.classList.remove('incorrect');
+                        } else {
+                            input.classList.add('incorrect');
+                            input.classList.remove('correct');
+                            isWordCorrect = false;
+                        }
+                    }
+                }
+                if (isWordCorrect) correctCount++;
+            });
+
+            if (correctCount === WORDS_ANATOMY.length) {
+                messageEl.style.color = 'var(--success)';
+                messageEl.textContent = `🎉 Поздравляем! Вы отгадали все ${correctCount} слов!`;
+            } else {
+                messageEl.style.color = 'var(--error)';
+                messageEl.textContent = `✅ Правильно: ${correctCount} из ${WORDS_ANATOMY.length}`;
+            }
+        }
+
+        function showAnswersAnatomy() {
+            WORDS_ANATOMY.forEach(w => {
+                for (let i = 0; i < w.word.length; i++) {
+                    let r = w.startRow + (w.dir === 'down' ? i : 0);
+                    let c = w.startCol + (w.dir === 'across' ? i : 0);
+                    const input = document.querySelector(`#grid-anatomy .cell-input[data-row="${r}"][data-col="${c}"]`);
+                    if (input) {
+                        input.value = w.word[i];
+                        input.classList.remove('incorrect', 'correct');
+                    }
+                }
+            });
+            document.getElementById('message-anatomy').textContent = 'Ответы показаны. Попробуйте отгадать сами!';
+        }
+
+        function clearGridAnatomy() {
+            document.querySelectorAll('#grid-anatomy .cell-input').forEach(input => {
+                input.value = '';
+                input.classList.remove('incorrect', 'correct');
+            });
+            document.getElementById('message-anatomy').textContent = '';
+        }
+
+        // ========== КРОССВОРД ФАРМАКОЛОГИЯ ==========
+        const WORDS_PHARMA = [
+            { num: 1, word: "ТАБЛЕТКА", dir: "across", startRow: 2, startCol: 1, clue: "Твёрдая лекарственная форма для приёма внутрь" },
+            { num: 2, word: "АСПИРИН", dir: "down", startRow: 2, startCol: 2, clue: "Известное жаропонижающее и обезболивающее средство" },
+            { num: 3, word: "АПТЕКА", dir: "down", startRow: 2, startCol: 8, clue: "Учреждение, где продают лекарства" },
+            { num: 4, word: "ДОЗА", dir: "across", startRow: 7, startCol: 4, clue: "Количество лекарства, принимаемое за один раз" },
+            { num: 5, word: "РЕЦЕПТ", dir: "across", startRow: 6, startCol: 2, clue: "Письменное назначение врача на изготовление и отпуск лекарства" }
+        ];
+
+        const ROWS_PHARMA = 10;
+        const COLS_PHARMA = 10;
+        let gridDataPharma = Array.from({ length: ROWS_PHARMA }, () => Array(COLS_PHARMA).fill(null));
+        let activeCellPharma = { r: 0, c: 0 };
+
+        function initGridPharma() {
+            gridDataPharma = Array.from({ length: ROWS_PHARMA }, () => Array(COLS_PHARMA).fill(null));
+            WORDS_PHARMA.forEach(w => {
+                for (let i = 0; i < w.word.length; i++) {
+                    let r = w.startRow + (w.dir === 'down' ? i : 0);
+                    let c = w.startCol + (w.dir === 'across' ? i : 0);
+                    if (!gridDataPharma[r][c]) gridDataPharma[r][c] = { letter: '', numbers: [] };
+                    gridDataPharma[r][c].letter = w.word[i];
+                    if (i === 0) gridDataPharma[r][c].numbers.push(w.num);
+                }
+            });
+        }
+
+        function renderGridPharma() {
+            const gridEl = document.getElementById('grid-pharma');
+            gridEl.innerHTML = '';
+            
+            for (let r = 0; r < ROWS_PHARMA; r++) {
+                for (let c = 0; c < COLS_PHARMA; c++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    cell.dataset.row = r;
+                    cell.dataset.col = c;
+
+                    if (gridDataPharma[r][c]) {
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.maxLength = 1;
+                        input.className = 'cell-input';
+                        input.dataset.row = r;
+                        input.dataset.col = c;
+                        
+                        input.addEventListener('input', handleInputPharma);
+                        input.addEventListener('keydown', handleKeyDownPharma);
+                        input.addEventListener('focus', () => {
+                            activeCellPharma = { r, c };
+                            highlightCluesPharma(r, c);
+                        });
+                        cell.appendChild(input);
+
+                        if (gridDataPharma[r][c].numbers.length > 0) {
+                            const numSpan = document.createElement('span');
+                            numSpan.className = 'cell-number';
+                            numSpan.textContent = gridDataPharma[r][c].numbers.join(',');
+                            cell.appendChild(numSpan);
+                        }
+                    } else {
+                        cell.classList.add('empty');
+                    }
+                    gridEl.appendChild(cell);
+                }
+            }
+        }
+
+        function renderCluesPharma() {
+            const acrossEl = document.getElementById('across-clues-pharma');
+            const downEl = document.getElementById('down-clues-pharma');
+            
+            acrossEl.innerHTML = '';
+            downEl.innerHTML = '';
+            
+            WORDS_PHARMA.forEach(w => {
+                const el = document.createElement('div');
+                el.className = 'clue-item';
+                el.dataset.wordNum = w.num;
+                el.innerHTML = `<span class="clue-number">${w.num}.</span> ${w.clue}`;
+                el.onclick = () => focusWordPharma(w);
+                
+                if (w.dir === 'across') acrossEl.appendChild(el);
+                else downEl.appendChild(el);
+            });
+        }
+
+        function handleInputPharma(e) {
+            const input = e.target;
+            const val = input.value.toUpperCase();
+            
+            const cyrillicPattern = /^[А-ЯЁ]$/;
+            if (val && !cyrillicPattern.test(val)) {
+                input.value = '';
+                return;
+            }
+            
+            input.value = val;
+            if (val) moveFocusPharma(1);
+        }
+
+        function handleKeyDownPharma(e) {
+            if (e.key === 'ArrowRight') moveFocusPharma(1, 'across');
+            else if (e.key === 'ArrowLeft') moveFocusPharma(-1, 'across');
+            else if (e.key === 'ArrowDown') moveFocusPharma(1, 'down');
+            else if (e.key === 'ArrowUp') moveFocusPharma(-1, 'down');
+            else if (e.key === 'Backspace') {
+                e.preventDefault();
+                if (e.target.value === '') moveFocusPharma(-1);
+                e.target.value = '';
+            }
+        }
+
+        function moveFocusPharma(step, dir = null) {
+            let { r, c } = activeCellPharma;
+            let dr = 0, dc = 0;
+            
+            if (dir === 'across') dc = step;
+            else if (dir === 'down') dr = step;
+            else {
+                dc = step; 
+            }
+
+            let nr = r + dr, nc = c + dc;
+            while (nr >= 0 && nr < ROWS_PHARMA && nc >= 0 && nc < COLS_PHARMA) {
+                if (gridDataPharma[nr][nc]) {
+                    const cell = document.querySelector(`#grid-pharma .cell-input[data-row="${nr}"][data-col="${nc}"]`);
+                    if (cell) cell.focus();
+                    return;
+                }
+                nr += dr; nc += dc;
+            }
+        }
+
+        function highlightCluesPharma(r, c) {
+            document.querySelectorAll('#across-clues-pharma .clue-item, #down-clues-pharma .clue-item').forEach(el => el.classList.remove('active'));
+            WORDS_PHARMA.forEach(w => {
+                const isAcross = w.dir === 'across' && r === w.startRow && c >= w.startCol && c < w.startCol + w.word.length;
+                const isDown = w.dir === 'down' && c === w.startCol && r >= w.startRow && r < w.startRow + w.word.length;
+                if (isAcross || isDown) {
+                    document.querySelector(`.clue-item[data-word-num="${w.num}"]`).classList.add('active');
+                }
+            });
+        }
+
+        function focusWordPharma(w) {
+            const input = document.querySelector(`#grid-pharma .cell-input[data-row="${w.startRow}"][data-col="${w.startCol}"]`);
+            if (input) input.focus();
+        }
+
+        function checkAnswersPharma() {
+            let correctCount = 0;
+            const messageEl = document.getElementById('message-pharma');
+            
+            WORDS_PHARMA.forEach(w => {
+                let isWordCorrect = true;
+                for (let i = 0; i < w.word.length; i++) {
+                    let r = w.startRow + (w.dir === 'down' ? i : 0);
+                    let c = w.startCol + (w.dir === 'across' ? i : 0);
+                    const input = document.querySelector(`#grid-pharma .cell-input[data-row="${r}"][data-col="${c}"]`);
+                    
+                    if (input) {
+                        if (input.value.toUpperCase() === w.word[i]) {
+                            input.classList.add('correct');
+                            input.classList.remove('incorrect');
+                        } else {
+                            input.classList.add('incorrect');
+                            input.classList.remove('correct');
+                            isWordCorrect = false;
+                        }
+                    }
+                }
+                if (isWordCorrect) correctCount++;
+            });
+
+            if (correctCount === WORDS_PHARMA.length) {
+                messageEl.style.color = 'var(--success)';
+                messageEl.textContent = `🎉 Поздравляем! Вы отгадали все ${correctCount} слов!`;
+            } else {
+                messageEl.style.color = 'var(--error)';
+                messageEl.textContent = `✅ Правильно: ${correctCount} из ${WORDS_PHARMA.length}`;
+            }
+        }
+
+        function showAnswersPharma() {
+            WORDS_PHARMA.forEach(w => {
+                for (let i = 0; i < w.word.length; i++) {
+                    let r = w.startRow + (w.dir === 'down' ? i : 0);
+                    let c = w.startCol + (w.dir === 'across' ? i : 0);
+                    const input = document.querySelector(`#grid-pharma .cell-input[data-row="${r}"][data-col="${c}"]`);
+                    if (input) {
+                        input.value = w.word[i];
+                        input.classList.remove('incorrect', 'correct');
+                    }
+                }
+            });
+            document.getElementById('message-pharma').textContent = 'Ответы показаны. Попробуйте отгадать сами!';
+        }
+
+        function clearGridPharma() {
+            document.querySelectorAll('#grid-pharma .cell-input').forEach(input => {
+                input.value = '';
+                input.classList.remove('incorrect', 'correct');
+            });
+            document.getElementById('message-pharma').textContent = '';
+        }
+
+        // ========== УПРАВЛЕНИЕ ВКЛАДКАМИ ==========
+        function showCrossword(crosswordId) {
+            // Скрываем все кроссворды
+            document.querySelectorAll('.crossword-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Скрываем все кнопки
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Показываем выбранный кроссворд
+            const crosswordElement = document.getElementById(`crossword-${crosswordId}`);
+            if (crosswordElement) {
+                crosswordElement.classList.add('active');
+                
+                // Активируем соответствующую кнопку
+                const button = document.querySelector(`.tab-btn:nth-child(${crosswordId === 'anatomy' ? 1 : 2})`);
+                if (button) button.classList.add('active');
+                
+                // Инициализируем и рендерим кроссворд при первом открытии
+                if (crosswordId === 'anatomy') {
+                    initGridAnatomy();
+                    renderGridAnatomy();
+                    renderCluesAnatomy();
+                } else if (crosswordId === 'pharma') {
+                    initGridPharma();
+                    renderGridPharma();
+                    renderCluesPharma();
+                }
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Инициализируем кроссворд Анатомия по умолчанию
+            initGridAnatomy();
+            renderGridAnatomy();
+            renderCluesAnatomy();
+        });
+    </script>
 
 </body>
 </html>
