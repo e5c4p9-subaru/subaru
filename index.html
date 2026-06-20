@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Архив 2026</title>
-    <!-- Подключаем красивые шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Светлая палитра */
             --bg-body: #f0f4f8;
             --bg-card: #ffffff;
             --text-primary: #2d3748;
@@ -84,17 +82,8 @@
             margin-bottom: 20px;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-        }
+        h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--text-primary); }
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 1.05rem; }
 
         .stat-item { margin-bottom: 20px; }
         .stat-header {
@@ -104,12 +93,7 @@
             font-weight: 700;
             color: var(--text-primary);
         }
-        .progress-bg {
-            background: #edf2f7;
-            height: 12px;
-            border-radius: 6px;
-            overflow: hidden;
-        }
+        .progress-bg { background: #edf2f7; height: 12px; border-radius: 6px; overflow: hidden; }
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--accent-color), #667eea);
@@ -142,17 +126,8 @@
             min-width: 60px;
             border: 1px solid var(--border-color);
         }
-        .math-val {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent-color);
-        }
-        .math-char {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
+        .math-val { display: block; font-size: 1.5rem; font-weight: 800; color: var(--accent-color); }
+        .math-char { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; }
 
         pre {
             background: var(--code-bg);
@@ -170,12 +145,7 @@
         .highlight { color: var(--accent-color); font-weight: 600; }
         .success-text { color: var(--success-color); font-weight: 700; }
         
-        .study-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 15px;
-        }
+        .study-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
         .stat-box {
             background: var(--bg-body);
             padding: 20px;
@@ -183,23 +153,9 @@
             text-align: center;
             border: 1px solid var(--border-color);
         }
-        .stat-value {
-            display: block;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            line-height: 1.2;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 5px;
-        }
-        .score-highlight {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--success-color);
-        }
+        .stat-value { display: block; font-size: 2rem; font-weight: 800; color: var(--accent-color); line-height: 1.2; }
+        .stat-label { font-size: 0.9rem; color: var(--text-secondary); margin-top: 5px; }
+        .score-highlight { font-size: 1.8rem; font-weight: 800; color: var(--success-color); }
 
         .tree-container {
             font-family: 'Source Code Pro', monospace;
@@ -232,11 +188,7 @@
             color: var(--text-secondary);
             font-weight: 300;
         }
-        .tree-branch {
-            margin: 4px 0;
-            padding-left: 15px;
-            border-left: 2px solid var(--border-color);
-        }
+        .tree-branch { margin: 4px 0; padding-left: 15px; border-left: 2px solid var(--border-color); }
         .condition {
             color: var(--text-primary);
             font-weight: 700;
@@ -255,11 +207,7 @@
         .decision.approved { background: rgba(56, 161, 105, 0.15); color: var(--success-color); }
         .decision.denied { background: rgba(229, 62, 62, 0.15); color: var(--danger-color); }
         .decision.warning { background: rgba(221, 107, 32, 0.15); color: var(--warning-color); }
-        .probability {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-left: 8px;
-        }
+        .probability { font-size: 0.85rem; color: var(--text-secondary); margin-left: 8px; }
         .branch-label {
             font-size: 0.8rem;
             font-weight: 700;
@@ -280,18 +228,9 @@
             padding: 15px 25px;
             margin-top: 20px;
         }
-        .accuracy-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-color);
-        }
-        .accuracy-label {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.3;
-        }
+        .accuracy-value { font-size: 2rem; font-weight: 800; color: var(--accent-color); }
+        .accuracy-label { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.3; }
 
-        /* Стили для блока диагностики нейросети */
         .diagnostic-block {
             font-family: 'Source Code Pro', monospace;
             background: var(--code-bg);
@@ -314,23 +253,10 @@
             align-items: center;
             gap: 6px;
         }
-        .epoch-log {
-            margin: 8px 0;
-            padding-left: 10px;
-            border-left: 2px solid var(--accent-light);
-        }
-        .epoch-line {
-            display: flex;
-            justify-content: space-between;
-            padding: 3px 0;
-            font-size: 0.85rem;
-        }
+        .epoch-log { margin: 8px 0; padding-left: 10px; border-left: 2px solid var(--accent-light); }
+        .epoch-line { display: flex; justify-content: space-between; padding: 3px 0; font-size: 0.85rem; }
         .epoch-num { color: var(--text-secondary); }
-        .epoch-mse { 
-            font-weight: 700; 
-            color: var(--accent-color);
-            font-family: 'Source Code Pro', monospace;
-        }
+        .epoch-mse { font-weight: 700; color: var(--accent-color); font-family: 'Source Code Pro', monospace; }
         .completion-badge {
             display: inline-flex;
             align-items: center;
@@ -344,12 +270,7 @@
             margin: 10px 0;
         }
         
-        .results-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 15px 0;
-        }
+        .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0; }
         .result-box {
             background: var(--bg-body);
             padding: 12px 16px;
@@ -357,25 +278,12 @@
             text-align: center;
             border: 1px solid var(--border-color);
         }
-        .result-label {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-        }
-        .result-value {
-            font-size: 1.3rem;
-            font-weight: 800;
-            font-family: 'Source Code Pro', monospace;
-        }
+        .result-label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px; }
+        .result-value { font-size: 1.3rem; font-weight: 800; font-family: 'Source Code Pro', monospace; }
         .result-value.good { color: var(--success-color); }
         .result-value.warn { color: var(--warning-color); }
         
-        .prediction-list {
-            margin: 15px 0;
-            padding-top: 15px;
-            border-top: 2px dashed var(--border-color);
-        }
+        .prediction-list { margin: 15px 0; padding-top: 15px; border-top: 2px dashed var(--border-color); }
         .prediction-item {
             display: flex;
             justify-content: space-between;
@@ -407,10 +315,7 @@
             text-align: left;
             border-bottom: 2px solid var(--border-color);
         }
-        .comparison-table td {
-            padding: 10px 12px;
-            border-bottom: 1px solid var(--border-color);
-        }
+        .comparison-table td { padding: 10px 12px; border-bottom: 1px solid var(--border-color); }
         .comparison-table tr:last-child td { border-bottom: none; }
         .comparison-table tr:hover { background: var(--bg-body); }
         .mse-val { font-weight: 700; text-align: right; font-family: 'Source Code Pro', monospace; }
@@ -429,7 +334,6 @@
         .model-insight strong { color: var(--accent-color); }
         .insight-warning { color: var(--warning-color); font-weight: 600; }
 
-        /* Стили для диаграммы алгоритма */
         .flowchart-container {
             background: var(--bg-body);
             border: 2px solid var(--border-color);
@@ -438,7 +342,6 @@
             margin: 25px 0;
             overflow-x: auto;
         }
-        
         .flowchart-image {
             max-width: 100%;
             height: auto;
@@ -455,25 +358,10 @@
             border-radius: 0 8px 8px 0;
             margin: 20px 0;
         }
-        
-        .algorithm-description h3 {
-            color: var(--accent-color);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        
-        .algorithm-description ul {
-            margin-left: 20px;
-            color: var(--text-secondary);
-        }
-        
-        .algorithm-description li {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
+        .algorithm-description h3 { color: var(--accent-color); margin-bottom: 12px; font-size: 1.1rem; }
+        .algorithm-description ul { margin-left: 20px; color: var(--text-secondary); }
+        .algorithm-description li { margin: 8px 0; line-height: 1.6; }
 
-        /* ===== СТИЛИ ДЛЯ БЛОКА БАЗЫ ДАННЫХ ===== */
-        
         .diagram-frame {
             background: white;
             border: 2px solid var(--border-color);
@@ -482,7 +370,6 @@
             margin: 20px 0;
             overflow-x: auto;
         }
-        
         .diagram-frame img {
             max-width: 100%;
             height: auto;
@@ -498,30 +385,11 @@
             border-radius: 0 8px 8px 0;
             margin: 20px 0;
         }
-        
-        .db-description h3 {
-            color: var(--accent-color);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        
-        .db-description ul {
-            margin-left: 20px;
-            color: var(--text-secondary);
-        }
-        
-        .db-description li {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
+        .db-description h3 { color: var(--accent-color); margin-bottom: 12px; font-size: 1.1rem; }
+        .db-description ul { margin-left: 20px; color: var(--text-secondary); }
+        .db-description li { margin: 8px 0; line-height: 1.6; }
 
-        /* Статистика пациентов */
-        .patient-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 15px 0;
-        }
+        .patient-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 15px 0; }
         .patient-stat-box {
             background: var(--bg-body);
             padding: 15px 10px;
@@ -529,24 +397,13 @@
             text-align: center;
             border: 1px solid var(--border-color);
         }
-        .patient-stat-value {
-            display: block;
-            font-size: 1.8rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
+        .patient-stat-value { display: block; font-size: 1.8rem; font-weight: 800; line-height: 1.1; }
         .patient-stat-value.total { color: var(--accent-color); }
         .patient-stat-value.emergency { color: var(--danger-color); }
         .patient-stat-value.planned { color: var(--success-color); }
         .patient-stat-value.self { color: var(--warning-color); }
-        .patient-stat-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
-            display: block;
-        }
+        .patient-stat-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; display: block; }
 
-        /* Таблица сравнения структур */
         .comparison-card {
             background: var(--bg-card);
             border-radius: 12px;
@@ -555,14 +412,7 @@
             border: 1px solid var(--border-color);
             overflow-x: auto;
         }
-        
-        .comparison-card table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-            min-width: 500px;
-        }
-        
+        .comparison-card table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 500px; }
         .comparison-card th {
             background: var(--accent-light);
             color: var(--accent-color);
@@ -573,34 +423,12 @@
             position: sticky;
             top: 0;
         }
+        .comparison-card td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
+        .comparison-card tr:last-child td { border-bottom: none; }
+        .comparison-card tr:hover { background: var(--bg-body); }
+        .comparison-card td:first-child { font-weight: 700; color: var(--text-primary); background: var(--bg-body); }
         
-        .comparison-card td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: middle;
-        }
-        
-        .comparison-card tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .comparison-card tr:hover {
-            background: var(--bg-body);
-        }
-        
-        .comparison-card td:first-child {
-            font-weight: 700;
-            color: var(--text-primary);
-            background: var(--bg-body);
-        }
-        
-        .stars {
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-align: center;
-            display: block;
-        }
-        
+        .stars { font-size: 1.1rem; letter-spacing: 2px; text-align: center; display: block; }
         .stars.best { color: var(--success-color); }
         .stars.good { color: var(--accent-color); }
         .stars.avg { color: var(--warning-color); }
@@ -617,19 +445,9 @@
             font-size: 0.8rem;
             color: var(--text-secondary);
         }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .legend-stars {
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-        }
+        .legend-item { display: flex; align-items: center; gap: 4px; }
+        .legend-stars { font-size: 0.95rem; letter-spacing: 1px; }
 
-        /* Кнопка скачивания */
         .download-btn {
             display: inline-flex;
             align-items: center;
@@ -644,40 +462,15 @@
             transition: transform 0.2s, box-shadow 0.2s;
             margin-top: 15px;
         }
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
-        }
+        .download-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3); }
 
-        /* Сворачиваемый блок */
-        details {
-            background: var(--bg-body);
-            border-radius: 10px;
-            padding: 15px 20px;
-            margin: 15px 0;
-        }
-        summary {
-            cursor: pointer;
-            font-weight: 700;
-            color: var(--accent-color);
-            outline: none;
-        }
+        details { background: var(--bg-body); border-radius: 10px; padding: 15px 20px; margin: 15px 0; }
+        summary { cursor: pointer; font-weight: 700; color: var(--accent-color); outline: none; }
         summary::-webkit-details-marker { display: none; }
-        summary::before {
-            content: "▶ ";
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-        details[open] summary::before {
-            transform: rotate(90deg);
-        }
+        summary::before { content: "▶ "; display: inline-block; transition: transform 0.2s; }
+        details[open] summary::before { transform: rotate(90deg); }
 
-        /* ===== СТИЛИ ДЛЯ ТАБЛИЦЫ С КОДАМИ ===== */
-        .codes-table-container {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-        
+        .codes-table-container { overflow-x: auto; margin: 20px 0; }
         .codes-table {
             width: 100%;
             border-collapse: collapse;
@@ -687,7 +480,6 @@
             border-radius: 10px;
             overflow: hidden;
         }
-        
         .codes-table th {
             background: var(--accent-light);
             color: var(--accent-color);
@@ -699,22 +491,9 @@
             top: 0;
             white-space: nowrap;
         }
-        
-        .codes-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-            line-height: 1.5;
-        }
-        
-        .codes-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .codes-table tr:hover {
-            background: var(--bg-body);
-        }
-        
+        .codes-table td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); vertical-align: top; line-height: 1.5; }
+        .codes-table tr:last-child td { border-bottom: none; }
+        .codes-table tr:hover { background: var(--bg-body); }
         .codes-table td:first-child {
             font-weight: 700;
             color: var(--text-primary);
@@ -722,37 +501,17 @@
             min-width: 40px;
             text-align: center;
         }
-        
-        .codes-table .formula {
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-        
-        .codes-table .answer {
-            font-weight: 700;
-            color: var(--success-color);
-            white-space: nowrap;
-        }
-        
-        .codes-table .topic {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
+        .codes-table .formula { color: var(--text-secondary); font-style: italic; }
+        .codes-table .answer { font-weight: 700; color: var(--success-color); white-space: nowrap; }
+        .codes-table .topic { font-weight: 600; color: var(--text-primary); }
 
-        /* ===== СТИЛИ ДЛЯ БЛОКА С КРОССВОРДАМИ ===== */
-        .crossword-links {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 25px 0;
-        }
-        
+        /* ===== СТИЛИ ДЛЯ КАРТОЧЕК КРОССВОРДОВ ===== */
+        .crossword-links { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
         .crossword-link-card {
             background: linear-gradient(135deg, var(--accent-light), #f7fafc);
             border: 2px solid var(--accent-color);
             border-radius: 12px;
             padding: 25px;
-            text-decoration: none;
             color: var(--text-primary);
             transition: all 0.3s ease;
             display: flex;
@@ -760,31 +519,16 @@
             align-items: center;
             text-align: center;
             gap: 12px;
+            cursor: pointer;
         }
-        
         .crossword-link-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(76, 81, 191, 0.2);
             border-color: #667eea;
         }
-        
-        .crossword-icon {
-            font-size: 3rem;
-            line-height: 1;
-        }
-        
-        .crossword-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--accent-color);
-        }
-        
-        .crossword-desc {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-        
+        .crossword-icon { font-size: 3rem; line-height: 1; }
+        .crossword-title { font-size: 1.2rem; font-weight: 800; color: var(--accent-color); }
+        .crossword-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.4; }
         .crossword-badge {
             display: inline-block;
             background: var(--success-color);
@@ -796,65 +540,227 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
-        /* Адаптивность для мобильных */
-        @media (max-width: 600px) {
-            .patient-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .study-stats {
-                grid-template-columns: 1fr;
-            }
-            .comparison-card table {
-                font-size: 0.8rem;
-            }
-            .comparison-card th,
-            .comparison-card td {
-                padding: 8px 10px;
-            }
-            .codes-table {
-                font-size: 0.75rem;
-            }
-            .codes-table th,
-            .codes-table td {
-                padding: 8px 10px;
-            }
-            .crossword-links {
-                grid-template-columns: 1fr;
-            }
+        .crossword-open-hint {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 700;
         }
 
-        /* ===== СТИЛИ ДЛЯ ВСТРОЕННЫХ КРОССВОРДОВ ===== */
-        .embedded-crossword {
-            margin-top: 30px;
+        /* ===== СТИЛИ ДЛЯ МОДАЛЬНЫХ ОКОН КРОССВОРДОВ ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
             padding: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-overlay.active { display: flex; justify-content: center; align-items: flex-start; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-window {
             background: white;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            margin: 20px auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 0.3s ease;
         }
-        .crossword-tabs {
+        
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            padding: 25px 30px;
+            border-bottom: 2px solid var(--border-color);
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: white;
+            border-radius: 16px 16px 0 0;
+            z-index: 10;
         }
-        .tab-btn {
-            padding: 10px 20px;
-            background: var(--accent-light);
+        
+        .modal-header h2 {
+            margin: 0;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+        
+        .modal-close {
+            background: var(--danger-color);
+            color: white;
             border: none;
-            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
             cursor: pointer;
-            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close:hover { background: #c0392b; transform: rotate(90deg); }
+        
+        .modal-body { padding: 30px; }
+        
+        .crossword {
+            background: var(--bg-body);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .word-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
             transition: all 0.2s;
         }
-        .tab-btn.active {
-            background: var(--accent-color);
-            color: white;
+        .word-row:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(76, 81, 191, 0.1);
         }
-        .crossword-content {
-            display: none;
+        .word-row.all-correct {
+            border-color: var(--success-color);
+            background: rgba(56, 161, 105, 0.05);
         }
-        .crossword-content.active {
-            display: block;
+        
+        .word-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            min-width: 45px;
+            height: 45px;
+            text-align: center;
+            background: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .word-clue { flex: 1; font-size: 1rem; color: var(--text-primary); font-weight: 600; }
+        
+        .word-cells { display: flex; gap: 4px; }
+        
+        .word-cell {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            transition: all 0.2s;
+        }
+        
+        .word-cell input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: transparent;
+            outline: none;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        .word-cell input:focus { background: var(--accent-light); }
+        .word-cell input.correct { background: rgba(56, 161, 105, 0.25); color: var(--success-color); }
+        .word-cell input.incorrect { background: rgba(229, 62, 62, 0.25); color: var(--danger-color); }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-check { background: var(--success-color); color: white; }
+        .btn-check:hover { background: #27ae60; box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3); }
+        .btn-show { background: #3498db; color: white; }
+        .btn-show:hover { background: #2980b9; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3); }
+        .btn-clear { background: var(--danger-color); color: white; }
+        .btn-clear:hover { background: #c0392b; box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3); }
+        
+        .message-box {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 700;
+            min-height: 30px;
+            font-size: 1.2rem;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        .message-box.success { background: rgba(56, 161, 105, 0.15); color: var(--success-color); }
+        .message-box.error { background: rgba(229, 62, 62, 0.15); color: var(--danger-color); }
+        .message-box.info { background: var(--accent-light); color: var(--accent-color); }
+        
+        .info-block {
+            background: var(--accent-light);
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .info-block strong { color: var(--accent-color); }
+
+        @media (max-width: 600px) {
+            .patient-stats { grid-template-columns: repeat(2, 1fr); }
+            .study-stats { grid-template-columns: 1fr; }
+            .comparison-card table { font-size: 0.8rem; }
+            .comparison-card th, .comparison-card td { padding: 8px 10px; }
+            .codes-table { font-size: 0.75rem; }
+            .codes-table th, .codes-table td { padding: 8px 10px; }
+            .crossword-links { grid-template-columns: 1fr; }
+            .word-row { flex-direction: column; align-items: flex-start; }
+            .word-cell { width: 32px; height: 32px; }
+            .word-cell input { font-size: 1.1rem; }
+            .modal-header { padding: 20px; }
+            .modal-body { padding: 20px; }
         }
     </style>
 </head>
@@ -866,99 +772,41 @@
             <p>Цифровой архив и наблюдения</p>
         </header>
 
-        <!-- 🔹 НОВЫЙ БЛОК: 20 июня 2026 - Кроссворды и презентация -->
+        <!-- 🔹 БЛОК: 20 июня 2026 - Кроссворды и презентация -->
         <article class="card">
             <span class="date-label">20 июня 2026</span>
             <h2>🧩 Интерактивные кроссворды и презентация</h2>
-            <p>Созданы два интерактивных кроссворда на медицинские темы и обновлена презентация по программированию. Кроссворды поддерживают проверку ответов, навигацию стрелками и автоматический переход между ячейками.</p>
+            <p>Созданы два интерактивных кроссворда на медицинские темы и обновлена презентация по программированию. Кроссворды открываются в отдельном модальном окне и поддерживают проверку ответов, навигацию стрелками и автоматический переход между ячейками.</p>
             
-            <!-- Блок с ссылками на кроссворды -->
             <div class="crossword-links">
-                <a href="#anatomy" class="crossword-link-card" onclick="showCrossword('anatomy'); return false;">
+                <div class="crossword-link-card" onclick="openCrossword('anatomy')">
                     <span class="crossword-icon">🧬</span>
                     <span class="crossword-title">Кроссворд «Анатомия»</span>
                     <span class="crossword-desc">10 слов на тему строения и органов человеческого тела</span>
                     <span class="crossword-badge">✓ Рабочий</span>
-                </a>
-                <a href="#pharma" class="crossword-link-card" onclick="showCrossword('pharma'); return false;">
+                    <span class="crossword-open-hint">🔗 Открыть в отдельном окне →</span>
+                </div>
+                <div class="crossword-link-card" onclick="openCrossword('pharma')">
                     <span class="crossword-icon">💊</span>
                     <span class="crossword-title">Кроссворд «Фармакология»</span>
                     <span class="crossword-desc">5 слов на тему лекарственных средств и аптечного дела</span>
                     <span class="crossword-badge">✓ Рабочий</span>
-                </a>
-            </div>
-            
-            <!-- Встроенные кроссворды -->
-            <div class="embedded-crossword">
-                <div class="crossword-tabs">
-                    <button class="tab-btn active" onclick="showCrossword('anatomy')">🧬 Анатомия</button>
-                    <button class="tab-btn" onclick="showCrossword('pharma')">💊 Фармакология</button>
-                </div>
-                
-                <!-- Кроссворд Анатомия -->
-                <div id="crossword-anatomy" class="crossword-content active">
-                    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-                        <div class="crossword-wrapper">
-                            <div id="grid-anatomy" class="crossword-grid"></div>
-                            <div class="message-box" id="message-anatomy"></div>
-                            <div class="controls">
-                                <button class="btn btn-check" onclick="checkAnswersAnatomy()">✅ Проверить</button>
-                                <button class="btn btn-show" onclick="showAnswersAnatomy()">💡 Показать ответы</button>
-                                <button class="btn btn-clear" onclick="clearGridAnatomy()">🗑️ Очистить</button>
-                            </div>
-                        </div>
-                        <div class="clues-container">
-                            <div class="clues-section">
-                                <h3>По горизонтали ➡️</h3>
-                                <div id="across-clues-anatomy"></div>
-                            </div>
-                            <div class="clues-section">
-                                <h3>По вертикали ⬇️</h3>
-                                <div id="down-clues-anatomy"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Кроссворд Фармакология -->
-                <div id="crossword-pharma" class="crossword-content">
-                    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-                        <div class="crossword-wrapper">
-                            <div id="grid-pharma" class="crossword-grid"></div>
-                            <div class="message-box" id="message-pharma"></div>
-                            <div class="controls">
-                                <button class="btn btn-check" onclick="checkAnswersPharma()">✅ Проверить</button>
-                                <button class="btn btn-show" onclick="showAnswersPharma()">💡 Показать ответы</button>
-                                <button class="btn btn-clear" onclick="clearGridPharma()">🗑️ Очистить</button>
-                            </div>
-                        </div>
-                        <div class="clues-container">
-                            <div class="clues-section">
-                                <h3>По горизонтали ➡️</h3>
-                                <div id="across-clues-pharma"></div>
-                            </div>
-                            <div class="clues-section">
-                                <h3>По вертикали ⬇️</h3>
-                                <div id="down-clues-pharma"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <span class="crossword-open-hint">🔗 Открыть в отдельном окне →</span>
                 </div>
             </div>
             
-            <!-- Описание функциональности кроссвордов -->
             <div class="model-insight">
                 💡 <strong>Возможности кроссвордов:</strong><br>
-                • <strong>Интерактивный ввод:</strong> в каждой ячейке — поле для одной буквы<br>
-                • <strong>Авто-переход:</strong> после ввода буквы фокус автоматически переходит к следующей ячейке<br>
-                • <strong>Навигация:</strong> стрелки клавиатуры работают корректно<br>
+                • <strong>Отдельное окно:</strong> кроссворд открывается в модальном окне поверх страницы<br>
+                • <strong>Простая структура:</strong> каждое слово расположено в отдельной строке<br>
+                • <strong>Удобный ввод:</strong> в каждой ячейке — поле для одной буквы<br>
+                • <strong>Авто-переход:</strong> после ввода буквы фокус переходит к следующей ячейке<br>
+                • <strong>Навигация:</strong> стрелки клавиатуры и Backspace работают корректно<br>
                 • <strong>Проверка:</strong> кнопка «Проверить» подсвечивает правильные буквы зелёным, ошибки — красным<br>
-                • <strong>Подсказки:</strong> отдельные списки для слов по горизонтали и вертикали<br>
                 • <strong>Дополнительно:</strong> кнопки «Показать ответы» и «Очистить»<br>
                 • <strong>Адаптивность:</strong> корректно отображается на мобильных устройствах
             </div>
             
-            <!-- Блок с презентацией -->
             <div style="background: var(--accent-light); border: 2px solid var(--accent-color); border-radius: 12px; padding: 20px; margin: 25px 0;">
                 <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-color);">
@@ -983,24 +831,34 @@
                 </div>
             </div>
             
-            <!-- Слова кроссвордов -->
             <div class="tree-container" style="margin-top: 20px;">
                 <div class="tree-title">📝 Список слов в кроссвордах</div>
                 <pre style="background: transparent; border: none; padding: 0; font-size: 0.85rem; line-height: 1.6; margin: 0;">
 <strong>🧬 КРОССВОРД «АНАТОМИЯ» (10 слов):</strong>
-  По горизонтали: СЕРДЦЕ, ПЕЧЕНЬ, ЖЕЛУДОК, ЧЕРЕП, ПОЗВОНОЧНИК
-  По вертикали:     МОЗГ, ЛЁГКИЕ, ПОЧКА, РЕБРО, МЫШЦА
+  1. СЕРДЦЕ      — Главный орган кровеносной системы
+  2. МОЗГ        — Центральный орган нервной системы
+  3. ПЕЧЕНЬ      — Крупнейшая железа организма
+  4. ПОЧКА       — Орган мочевыделительной системы
+  5. ЖЕЛУДОК     — Орган пищеварительной системы
+  6. ЛЁГКИЕ      — Органы дыхания
+  7. ЧЕРЕП       — Костная оболочка головы
+  8. РЕБРО       — Кость грудной клетки
+  9. ПОЗВОНОЧНИК — Опора тела из костей
+  10. МЫШЦА      — Орган двигательной системы
 
 <strong>💊 КРОССВОРД «ФАРМАКОЛОГИЯ» (5 слов):</strong>
-  По горизонтали: ТАБЛЕТКА, ДОЗА, РЕЦЕПТ
-  По вертикали:     АСПИРИН, АПТЕКА
+  1. ТАБЛЕТКА — Твёрдая лекарственная форма для приёма внутрь
+  2. АСПИРИН  — Известное жаропонижающее и обезболивающее средство
+  3. АПТЕКА   — Учреждение, где продают лекарства
+  4. ДОЗА     — Количество лекарства, принимаемое за один раз
+  5. РЕЦЕПТ   — Письменное назначение врача на изготовление и отпуск лекарства
                 </pre>
             </div>
             
             <div class="model-insight" style="margin-top: 15px; background: linear-gradient(135deg, #f0f9ff, #ebf4ff); border-color: #667eea;">
                 🎯 <strong>Техническая реализация:</strong><br>
                 • Кроссворды созданы на чистом HTML/CSS/JavaScript без внешних библиотек<br>
-                • Используются CSS Grid для построения сетки<br>
+                • Используются модальные окна для открытия в отдельном «окне»<br>
                 • JavaScript обрабатывает ввод, навигацию и проверку ответов<br>
                 • Поддержка кириллицы и буквы «Ё»<br>
                 • Файлы можно открыть в любом современном браузере
@@ -1013,7 +871,6 @@
             <h2>🐢 Графика Черепахи: Прямоугольник в Кумир</h2>
             <p>Программа на языке Кумир (Kumir) для рисования прямоугольника с использованием исполнителя «Черепаха»:</p>
             
-            <!-- Исходный код -->
             <pre><code><span class="highlight">использовать</span> Черепаха
 
 <span class="highlight">алг</span> Прямоугольник
@@ -1030,7 +887,6 @@
 
 <span class="highlight">кон</span></code></pre>
             
-            <!-- Описание алгоритма -->
             <div class="algorithm-description" style="margin: 20px 0;">
                 <h3>📝 Как работает программа:</h3>
                 <ul>
@@ -1046,27 +902,13 @@
                 </ul>
             </div>
             
-            <!-- Параметры фигуры -->
             <div class="math-grid" style="margin: 25px 0;">
-                <div class="math-box">
-                    <span class="math-val">200</span>
-                    <span class="math-char">длина</span>
-                </div>
-                <div class="math-box">
-                    <span class="math-val">100</span>
-                    <span class="math-char">ширина</span>
-                </div>
-                <div class="math-box">
-                    <span class="math-val">90°</span>
-                    <span class="math-char">угол</span>
-                </div>
-                <div class="math-box">
-                    <span class="math-val">2</span>
-                    <span class="math-char">итерации</span>
-                </div>
+                <div class="math-box"><span class="math-val">200</span><span class="math-char">длина</span></div>
+                <div class="math-box"><span class="math-val">100</span><span class="math-char">ширина</span></div>
+                <div class="math-box"><span class="math-val">90°</span><span class="math-char">угол</span></div>
+                <div class="math-box"><span class="math-val">2</span><span class="math-char">итерации</span></div>
             </div>
             
-            <!-- ASCII-визуализация результата -->
             <div class="tree-container" style="margin: 20px 0;">
                 <div class="tree-title">🖼️ Результат выполнения (схема)</div>
                 <pre style="background: transparent; border: none; padding: 0; font-size: 1rem; line-height: 1.4; margin: 0; text-align: center;">
@@ -1079,7 +921,6 @@
                 </pre>
             </div>
             
-            <!-- Блок с результатом -->
             <div class="model-insight">
                 💡 <strong>Результат выполнения:</strong><br>
                 ✅ Черепаха рисует замкнутый прямоугольник размером <strong>200×100 шагов</strong><br>
@@ -1088,7 +929,6 @@
                 🎨 Линия рисуется непрерывно, так как хвост опущен перед началом движения
             </div>
             
-            <!-- Ссылка на исходный файл -->
             <div style="text-align: center; margin-top: 25px;">
                 <a href="https://github.com/e5c4p9-subaru/subaru/blob/main/Pryamougolnik203%D1%81.kum" 
                    target="_blank" 
@@ -1101,7 +941,6 @@
                 </a>
             </div>
             
-            <!-- Дополнительная информация -->
             <details style="margin-top: 20px;">
                 <summary>🔧 Возможные модификации программы</summary>
                 <ul style="margin: 12px 0 0 20px; color: var(--text-secondary); line-height: 1.8;">
@@ -1114,7 +953,6 @@
                 </ul>
             </details>
             
-            <!-- Примечание по синтаксису Кумир -->
             <div class="model-insight" style="margin-top: 15px; background: linear-gradient(135deg, #f0f9ff, #ebf4ff); border-color: #667eea;">
                 📚 <strong>Синтаксис Кумир — кратко:</strong><br>
                 • Ключевые слова: <code>алг</code>, <code>нач</code>, <code>кон</code>, <code>нц</code>, <code>кц</code> — пишутся строчными буквами<br>
@@ -1124,7 +962,7 @@
             </div>
         </article>
 
-        <!-- 🔹 НОВЫЙ БЛОК: 20 мая 2026 - Таблица с кодами -->
+        <!-- 🔹 БЛОК: 20 мая 2026 - Таблица с кодами -->
         <article class="card">
             <span class="date-label">20 мая 2026</span>
             <h2>📊 Таблица с кодами</h2>
@@ -1132,165 +970,33 @@
             
             <div class="codes-table-container">
                 <table class="codes-table">
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Тема</th>
-                            <th>Формула</th>
-                            <th>Ответ</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>№</th><th>Тема</th><th>Формула</th><th>Ответ</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="topic">Оценка сознания</td>
-                            <td class="formula">2⁴ = 2 × 2 × 2 × 2</td>
-                            <td class="answer">16 комбинаций</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="topic">Контрольные листы процедур</td>
-                            <td class="formula">2⁵ = 2 × 2 × 2 × 2 × 2</td>
-                            <td class="answer">32 варианта</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="topic">Сигналы тревоги монитора</td>
-                            <td class="formula">2³ = 2 × 2 × 2</td>
-                            <td class="answer">8 комбинаций</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="topic">Проверка при введении лекарства</td>
-                            <td class="formula">2⁶ = 2 × 2 × 2 × 2 × 2 × 2</td>
-                            <td class="answer">64 комбинации</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="topic">Двоичный код симптомов</td>
-                            <td class="formula">Код = [С₁][С₂][С₃][С₄], где 1 = есть, 0 = нет. Позиции: С₁–Боль, С₂–Тошнота, С₃–Головокружение, С₄–Слабость. Для кода 1010: 1→С₁, 0→С₂, 1→С₃, 0→С₄</td>
-                            <td class="answer">Боль и головокружение</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td class="topic">Инфузомат: режимы работы</td>
-                            <td class="formula">2⁴ − 1 = 16 − 1</td>
-                            <td class="answer">15 конфигураций</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td class="topic">Двоичная запись температуры</td>
-                            <td class="formula">N₁₀ → N₂: последовательное деление на 2, запись остатков в обратном порядке <br> N₂ = Σ(dᵢ × 2ⁱ), где dᵢ — цифра на позиции i (справа налево, с 0)</td>
-                            <td class="answer">37₁₀ = 100101₂<br>38₁₀ = 100110₂<br>39₁₀ = 100111₂</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td class="topic">Перевод двоичного кода пациента</td>
-                            <td class="formula">N₁₀ = Σ(dᵢ × 2ⁱ), где dᵢ — цифра на позиции i (справа налево, начиная с 0). Для 10110₂: 1×2⁴ + 0×2³ + 1×2² + 1×2¹ + 0×2⁰</td>
-                            <td class="answer">22</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td class="topic">Комбинации препаратов</td>
-                            <td class="formula">N = 2ⁿ − 1, где n = 5 (число препаратов), вычитается 1 случай, когда все препараты = 0 (ни одного не назначено)</td>
-                            <td class="answer">31 комбинация</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td class="topic">Факторы риска пролежней</td>
-                            <td class="formula">N = Σ C₆ᵏ (k=3..6) или N = 2⁶ − (C₆⁰ + C₆¹ + C₆²)</td>
-                            <td class="answer">42 комбинации</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td class="topic">Двоичный журнал дежурств</td>
-                            <td class="formula">N = 2ⁿ, где n = 8 (количество часов), каждый час имеет 2 независимых состояния (0 или 1)</td>
-                            <td class="answer">256 вариантов</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td class="topic">Тест-полоски: комбинация результатов</td>
-                            <td class="formula">1) N = 2ⁿ, где n = 4 (число параметров), каждый параметр имеет 2 состояния: 1 (положительно) или 0 (отрицательно) <br> 2) N₀ = 1 (единственная комбинация, где все параметры = 0: 0000)</td>
-                            <td class="answer">1) 16 комбинаций<br>2) 1 комбинация</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td class="topic">Настройки кислородного концентратора</td>
-                            <td class="formula">N = N_поток × 2ⁿ, где N_поток = 3 (выбор ровно одного потока из трёх), n = 2 (независимые бинарные настройки: увлажнение и тревога)</td>
-                            <td class="answer">12 режимов</td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td class="topic">Двоичный код экстренной ситуации</td>
-                            <td class="formula">Код = [Б₁][Б₂][Б₃][Б₄][Б₅], где 1 = признак есть, 0 = нет. Позиции: Б₁–Дыхание, Б₂–Пульс, Б₃–Сознание, Б₄–Кровотечение, Б₅–Травма. Для 11010: 1→Б₁, 1→Б₂, 0→Б₃, 1→Б₄, 0→Б₅</td>
-                            <td class="answer">Дыхание: есть<br>Пульс: есть<br>Сознание: нет<br>Кровотечение: есть<br>Травма: нет</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td class="topic">Комбинации доступов для инфузии</td>
-                            <td class="formula">N = 2ⁿ − 1, где n = 4 (число типов доступов), вычитается 1 случай, когда все доступы = 0 (ни одного не используется)</td>
-                            <td class="answer">15 комбинаций</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td class="topic">Двоичное представление дозы</td>
-                            <td class="formula">N_max = 2ⁿ − 1, где n = 6 (число бит). Максимальный двоичный код: 111111₂</td>
-                            <td class="answer">63 единицы</td>
-                        </tr>
-                        <tr>
-                            <td>17</td>
-                            <td class="topic">Проверка оборудования перед сменой</td>
-                            <td class="formula">N = C₇⁰ + C₇¹ = 1 + 7</td>
-                            <td class="answer">8 комбинаций</td>
-                        </tr>
-                        <tr>
-                            <td>18</td>
-                            <td class="topic">Генетический скрининг</td>
-                            <td class="formula">C(n,k) = n! / (k! × (n-k)!), где n=8, k=3</td>
-                            <td class="answer">56 комбинаций</td>
-                        </tr>
-                        <tr>
-                            <td>19</td>
-                            <td class="topic">Двоичный шифр пациента в базе</td>
-                            <td class="formula">N = 2ⁿ, где n = 10 (число бит). Диапазон значений: от 0 (0000000000₂) до 1023 (1111111111₂)</td>
-                            <td class="answer">1024 пациента</td>
-                        </tr>
-                        <tr>
-                            <td>20</td>
-                            <td class="topic">Комбинации симптомов для диагноза</td>
-                            <td class="formula">N = C(5,3) + C(5,4) + C(5,5)</td>
-                            <td class="answer">16 комбинаций</td>
-                        </tr>
-                        <tr>
-                            <td>21</td>
-                            <td class="topic">Двоичное дерево решений</td>
-                            <td class="formula">N = 2ⁿ, где n = 5 (каждый вопрос делит текущую ветвь на 2)</td>
-                            <td class="answer">32 пути</td>
-                        </tr>
-                        <tr>
-                            <td>22</td>
-                            <td class="topic">Кодирование группы крови и резуса</td>
-                            <td class="formula">N = N_группа × N_резус, где N_группа = 2² = 4, N_резус = 2¹ = 2 → N = 4 × 2 = 8</td>
-                            <td class="answer">8 комбинаций</td>
-                        </tr>
-                        <tr>
-                            <td>23</td>
-                            <td class="topic">Мониторинг жизненных показателей</td>
-                            <td class="formula">1) N = 2ⁿ, где n = 8 (количество замеров), каждый замер имеет 2 состояния: 1 (норма) или 0 (отклонение)<br>2) N₀ = 1 (единственная комбинация, где все 8 значений = 1: 11111111)</td>
-                            <td class="answer">1) 256 вариантов<br>2) 1 вариант</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td class="topic">Двоичная проверка совместимости препаратов</td>
-                            <td class="formula">N = 2ⁿ − (Cₙ⁰ + Cₙ¹), где n = 6. Вычитаются случаи с 0 и 1 совместимым препаратом</td>
-                            <td class="answer">57 комбинаций</td>
-                        </tr>
-                        <tr>
-                            <td>25</td>
-                            <td class="topic">Система оповещения: двоичный код приоритета</td>
-                            <td class="formula">1) N = 2ⁿ, где n = 4 (число бит приоритета), каждый бит имеет 2 состояния: 0 или 1<br>2) Код = [Б₁][Б₂][Б₃][Б₄], где 1 = признак есть, 0 = нет. Позиции: Б₁–Угроза жизни, Б₂–Срочность, Б₃–Инфекционность, Б₄–Изоляция. Дано: Б₁=1, Б₃=1, остальные=0 → 1010</td>
-                            <td class="answer">1) 16 уровней<br>2) 1010₂</td>
-                        </tr>
+                        <tr><td>1</td><td class="topic">Оценка сознания</td><td class="formula">2⁴ = 2 × 2 × 2 × 2</td><td class="answer">16 комбинаций</td></tr>
+                        <tr><td>2</td><td class="topic">Контрольные листы процедур</td><td class="formula">2⁵ = 2 × 2 × 2 × 2 × 2</td><td class="answer">32 варианта</td></tr>
+                        <tr><td>3</td><td class="topic">Сигналы тревоги монитора</td><td class="formula">2³ = 2 × 2 × 2</td><td class="answer">8 комбинаций</td></tr>
+                        <tr><td>4</td><td class="topic">Проверка при введении лекарства</td><td class="formula">2⁶ = 2 × 2 × 2 × 2 × 2 × 2</td><td class="answer">64 комбинации</td></tr>
+                        <tr><td>5</td><td class="topic">Двоичный код симптомов</td><td class="formula">Код = [С₁][С₂][С₃][С₄], где 1 = есть, 0 = нет. Позиции: С₁–Боль, С₂–Тошнота, С₃–Головокружение, С₄–Слабость. Для кода 1010: 1→С₁, 0→С₂, 1→С₃, 0→С₄</td><td class="answer">Боль и головокружение</td></tr>
+                        <tr><td>6</td><td class="topic">Инфузомат: режимы работы</td><td class="formula">2⁴ − 1 = 16 − 1</td><td class="answer">15 конфигураций</td></tr>
+                        <tr><td>7</td><td class="topic">Двоичная запись температуры</td><td class="formula">N₁₀ → N₂: последовательное деление на 2, запись остатков в обратном порядке <br> N₂ = Σ(dᵢ × 2ⁱ), где dᵢ — цифра на позиции i (справа налево, с 0)</td><td class="answer">37₁₀ = 100101₂<br>38₁₀ = 100110₂<br>39₁₀ = 100111₂</td></tr>
+                        <tr><td>8</td><td class="topic">Перевод двоичного кода пациента</td><td class="formula">N₁₀ = Σ(dᵢ × 2ⁱ), где dᵢ — цифра на позиции i (справа налево, начиная с 0). Для 10110₂: 1×2⁴ + 0×2³ + 1×2² + 1×2¹ + 0×2⁰</td><td class="answer">22</td></tr>
+                        <tr><td>9</td><td class="topic">Комбинации препаратов</td><td class="formula">N = 2ⁿ − 1, где n = 5 (число препаратов), вычитается 1 случай, когда все препараты = 0 (ни одного не назначено)</td><td class="answer">31 комбинация</td></tr>
+                        <tr><td>10</td><td class="topic">Факторы риска пролежней</td><td class="formula">N = Σ C₆ᵏ (k=3..6) или N = 2⁶ − (C₆⁰ + C₆¹ + C₆²)</td><td class="answer">42 комбинации</td></tr>
+                        <tr><td>11</td><td class="topic">Двоичный журнал дежурств</td><td class="formula">N = 2ⁿ, где n = 8 (количество часов), каждый час имеет 2 независимых состояния (0 или 1)</td><td class="answer">256 вариантов</td></tr>
+                        <tr><td>12</td><td class="topic">Тест-полоски: комбинация результатов</td><td class="formula">1) N = 2ⁿ, где n = 4 (число параметров), каждый параметр имеет 2 состояния: 1 (положительно) или 0 (отрицательно) <br> 2) N₀ = 1 (единственная комбинация, где все параметры = 0: 0000)</td><td class="answer">1) 16 комбинаций<br>2) 1 комбинация</td></tr>
+                        <tr><td>13</td><td class="topic">Настройки кислородного концентратора</td><td class="formula">N = N_поток × 2ⁿ, где N_поток = 3 (выбор ровно одного потока из трёх), n = 2 (независимые бинарные настройки: увлажнение и тревога)</td><td class="answer">12 режимов</td></tr>
+                        <tr><td>14</td><td class="topic">Двоичный код экстренной ситуации</td><td class="formula">Код = [Б₁][Б₂][Б₃][Б₄][Б₅], где 1 = признак есть, 0 = нет. Позиции: Б₁–Дыхание, Б₂–Пульс, Б₃–Сознание, Б₄–Кровотечение, Б₅–Травма. Для 11010: 1→Б₁, 1→Б₂, 0→Б₃, 1→Б₄, 0→Б₅</td><td class="answer">Дыхание: есть<br>Пульс: есть<br>Сознание: нет<br>Кровотечение: есть<br>Травма: нет</td></tr>
+                        <tr><td>15</td><td class="topic">Комбинации доступов для инфузии</td><td class="formula">N = 2ⁿ − 1, где n = 4 (число типов доступов), вычитается 1 случай, когда все доступы = 0 (ни одного не используется)</td><td class="answer">15 комбинаций</td></tr>
+                        <tr><td>16</td><td class="topic">Двоичное представление дозы</td><td class="formula">N_max = 2ⁿ − 1, где n = 6 (число бит). Максимальный двоичный код: 111111₂</td><td class="answer">63 единицы</td></tr>
+                        <tr><td>17</td><td class="topic">Проверка оборудования перед сменой</td><td class="formula">N = C₇⁰ + C₇¹ = 1 + 7</td><td class="answer">8 комбинаций</td></tr>
+                        <tr><td>18</td><td class="topic">Генетический скрининг</td><td class="formula">C(n,k) = n! / (k! × (n-k)!), где n=8, k=3</td><td class="answer">56 комбинаций</td></tr>
+                        <tr><td>19</td><td class="topic">Двоичный шифр пациента в базе</td><td class="formula">N = 2ⁿ, где n = 10 (число бит). Диапазон значений: от 0 (0000000000₂) до 1023 (1111111111₂)</td><td class="answer">1024 пациента</td></tr>
+                        <tr><td>20</td><td class="topic">Комбинации симптомов для диагноза</td><td class="formula">N = C(5,3) + C(5,4) + C(5,5)</td><td class="answer">16 комбинаций</td></tr>
+                        <tr><td>21</td><td class="topic">Двоичное дерево решений</td><td class="formula">N = 2ⁿ, где n = 5 (каждый вопрос делит текущую ветвь на 2)</td><td class="answer">32 пути</td></tr>
+                        <tr><td>22</td><td class="topic">Кодирование группы крови и резуса</td><td class="formula">N = N_группа × N_резус, где N_группа = 2² = 4, N_резус = 2¹ = 2 → N = 4 × 2 = 8</td><td class="answer">8 комбинаций</td></tr>
+                        <tr><td>23</td><td class="topic">Мониторинг жизненных показателей</td><td class="formula">1) N = 2ⁿ, где n = 8 (количество замеров), каждый замер имеет 2 состояния: 1 (норма) или 0 (отклонение)<br>2) N₀ = 1 (единственная комбинация, где все 8 значений = 1: 11111111)</td><td class="answer">1) 256 вариантов<br>2) 1 вариант</td></tr>
+                        <tr><td>24</td><td class="topic">Двоичная проверка совместимости препаратов</td><td class="formula">N = 2ⁿ − (Cₙ⁰ + Cₙ¹), где n = 6. Вычитаются случаи с 0 и 1 совместимым препаратом</td><td class="answer">57 комбинаций</td></tr>
+                        <tr><td>25</td><td class="topic">Система оповещения: двоичный код приоритета</td><td class="formula">1) N = 2ⁿ, где n = 4 (число бит приоритета), каждый бит имеет 2 состояния: 0 или 1<br>2) Код = [Б₁][Б₂][Б₃][Б₄], где 1 = признак есть, 0 = нет. Позиции: Б₁–Угроза жизни, Б₂–Срочность, Б₃–Инфекционность, Б₄–Изоляция. Дано: Б₁=1, Б₃=1, остальные=0 → 1010</td><td class="answer">1) 16 уровней<br>2) 1010₂</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1374,7 +1080,6 @@
             <h2>🗄️ База данных: Иерархическая модель медицинской системы</h2>
             <p>Разработка иерархической модели данных для учета пациентов, хирургов и операций:</p>
             
-            <!-- Диаграмма -->
             <div class="diagram-frame">
                 <img src="hierarchical_models_diagram.png" alt="Иерархические модели базы данных: Пациент-Операция-Хирург и Хирург-Операция-Пациент">
             </div>
@@ -1388,22 +1093,17 @@
                 </ul>
             </div>
             
-            <!-- Связи в базе данных -->
             <div class="model-insight" style="margin-top: 20px;">
                 <strong>🔗 Связи в базе данных:</strong><br><br>
                 <strong>1. ПАЦИЕНТ → ОПЕРАЦИЯ (один-ко-многим)</strong><br>
                 Один пациент может перенести несколько операций. Каждая операция связана с одним конкретным пациентом через номер пациента (внешний ключ).<br><br>
-                
                 <strong>2. ХИРУРГ → ОПЕРАЦИЯ (один-ко-многим)</strong><br>
                 Один хирург может проводить множество операций. Каждая операция выполняется одним хирургом, который указывается через номер патента хирурга (внешний ключ).<br><br>
-                
                 <strong>3. ПАЦИЕНТ → ХИРУРГ (многие-ко-одному)</strong><br>
                 Пациент наблюдается у конкретного хирурга. Связь показывает, какой хирург ведет пациента.<br><br>
-                
                 <strong>Тип связей:</strong> Иерархические (древовидные) с родительскими сущностями (ПАЦИЕНТ, ХИРУРГ) и дочерней сущностью (ОПЕРАЦИЯ).
             </div>
             
-            <!-- Данные -->
             <div class="tree-container" style="margin-top: 20px;">
                 <div class="tree-title">📊 Примеры данных</div>
                 <pre style="background: transparent; border: none; padding: 0; font-size: 0.85rem; line-height: 1.5; margin: 0;">
@@ -1439,27 +1139,13 @@
             <h2>🏥 Генератор дерева приемного покоя</h2>
             <p>Python-скрипт для генерации и визуализации многомерного массива пациентов (без внешних зависимостей):</p>
             
-            <!-- Статистика пациентов -->
             <div class="patient-stats">
-                <div class="patient-stat-box">
-                    <span class="patient-stat-value total">5</span>
-                    <span class="patient-stat-label">Всего</span>
-                </div>
-                <div class="patient-stat-box">
-                    <span class="patient-stat-value emergency">3</span>
-                    <span class="patient-stat-label">Экстренных 🔴</span>
-                </div>
-                <div class="patient-stat-box">
-                    <span class="patient-stat-value planned">1</span>
-                    <span class="patient-stat-label">Плановых 🟢</span>
-                </div>
-                <div class="patient-stat-box">
-                    <span class="patient-stat-value self">1</span>
-                    <span class="patient-stat-label">Самолечение 🟡</span>
-                </div>
+                <div class="patient-stat-box"><span class="patient-stat-value total">5</span><span class="patient-stat-label">Всего</span></div>
+                <div class="patient-stat-box"><span class="patient-stat-value emergency">3</span><span class="patient-stat-label">Экстренных 🔴</span></div>
+                <div class="patient-stat-box"><span class="patient-stat-value planned">1</span><span class="patient-stat-label">Плановых 🟢</span></div>
+                <div class="patient-stat-box"><span class="patient-stat-value self">1</span><span class="patient-stat-label">Самолечение 🟡</span></div>
             </div>
             
-            <!-- ASCII дерево -->
             <div class="tree-container" style="margin-top: 20px;">
                 <div class="tree-title">🌲 Дерево приемного покоя (ASCII)</div>
                 <pre style="background: transparent; border: none; padding: 0; font-size: 0.82rem; line-height: 1.35; color: var(--text-primary); margin: 0;">
@@ -1530,7 +1216,6 @@
                 </pre>
             </div>
             
-            <!-- Компактный вид (сворачиваемый) -->
             <details>
                 <summary>📋 Компактный список пациентов</summary>
                 <div class="tree-container" style="margin-top: 12px; background: white;">
@@ -1553,51 +1238,16 @@
                 </div>
             </details>
             
-            <!-- Таблица сравнения структур данных -->
             <div class="comparison-card">
-                <div class="tree-title" style="border-bottom: 2px solid var(--border-color);">
-                    📊 Сравнение структур данных
-                </div>
+                <div class="tree-title" style="border-bottom: 2px solid var(--border-color);">📊 Сравнение структур данных</div>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Критерий</th>
-                            <th>Вложенный список</th>
-                            <th>Массив/JSON</th>
-                            <th>Словарь + очередь</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Критерий</th><th>Вложенный список</th><th>Массив/JSON</th><th>Словарь + очередь</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>Производительность</td>
-                            <td><span class="stars poor">⭐⭐</span></td>
-                            <td><span class="stars avg">⭐⭐⭐</span></td>
-                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
-                        </tr>
-                        <tr>
-                            <td>Память</td>
-                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
-                            <td><span class="stars good">⭐⭐⭐⭐</span></td>
-                            <td><span class="stars avg">⭐⭐⭐</span></td>
-                        </tr>
-                        <tr>
-                            <td>Гибкость</td>
-                            <td><span class="stars poor">⭐⭐</span></td>
-                            <td><span class="stars good">⭐⭐⭐⭐</span></td>
-                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
-                        </tr>
-                        <tr>
-                            <td>Простота</td>
-                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
-                            <td><span class="stars good">⭐⭐⭐⭐</span></td>
-                            <td><span class="stars avg">⭐⭐⭐</span></td>
-                        </tr>
-                        <tr>
-                            <td>Универсальность</td>
-                            <td><span class="stars poor">⭐⭐</span></td>
-                            <td><span class="stars best">⭐⭐⭐⭐⭐</span></td>
-                            <td><span class="stars good">⭐⭐⭐⭐</span></td>
-                        </tr>
+                        <tr><td>Производительность</td><td><span class="stars poor">⭐⭐</span></td><td><span class="stars avg">⭐⭐⭐</span></td><td><span class="stars best">⭐⭐⭐⭐⭐</span></td></tr>
+                        <tr><td>Память</td><td><span class="stars best">⭐⭐⭐⭐⭐</span></td><td><span class="stars good">⭐⭐⭐⭐</span></td><td><span class="stars avg">⭐⭐⭐</span></td></tr>
+                        <tr><td>Гибкость</td><td><span class="stars poor">⭐⭐</span></td><td><span class="stars good">⭐⭐⭐⭐</span></td><td><span class="stars best">⭐⭐⭐⭐⭐</span></td></tr>
+                        <tr><td>Простота</td><td><span class="stars best">⭐⭐⭐⭐⭐</span></td><td><span class="stars good">⭐⭐⭐⭐</span></td><td><span class="stars avg">⭐⭐⭐</span></td></tr>
+                        <tr><td>Универсальность</td><td><span class="stars poor">⭐⭐</span></td><td><span class="stars best">⭐⭐⭐⭐⭐</span></td><td><span class="stars good">⭐⭐⭐⭐</span></td></tr>
                     </tbody>
                 </table>
                 <div class="table-legend">
@@ -1608,7 +1258,6 @@
                 </div>
             </div>
             
-            <!-- Особенности реализации -->
             <div class="model-insight" style="margin-top: 20px;">
                 💡 <strong>Особенности реализации:</strong><br>
                 • <strong>Без зависимостей:</strong> только стандартная библиотека Python<br>
@@ -1618,17 +1267,13 @@
                 • <strong>Масштабируемость:</strong> легко добавить новых пациентов
             </div>
             
-            <!-- Рекомендация -->
             <div class="model-insight" style="margin-top: 15px; background: linear-gradient(135deg, #ebf4ff, #f0f9ff); border-color: #4c51bf;">
                 🎯 <strong>Рекомендация:</strong><br>
                 Для задачи «Приемный покой» оптимален вариант <strong>«Массив/JSON»</strong> — баланс производительности и универсальности.<br>
                 Если нужен частый поиск по ID — выбирайте <strong>«Словарь + очередь»</strong>.
             </div>
             
-            <!-- Кнопка скачивания -->
-            <div style="text-align: center;">
-                <a href="#" class="download-btn">📄 Скачать hospital_tree.py</a>
-            </div>
+            <div style="text-align: center;"><a href="#" class="download-btn">📄 Скачать hospital_tree.py</a></div>
         </article>
 
         <!-- 🔹 БЛОК: 31 марта 2026 - Диаграмма алгоритма -->
@@ -1667,7 +1312,6 @@
             
             <div class="diagnostic-block">
                 <div class="diagnostic-header">📊 Процесс обучения</div>
-                
                 <div class="epoch-log">
                     <div class="epoch-line"><span class="epoch-num">Эпоха    0</span><span class="epoch-mse">| Ошибка (MSE): 0.020260</span></div>
                     <div class="epoch-line"><span class="epoch-num">Эпоха  100</span><span class="epoch-mse">| Ошибка (MSE): 0.019167</span></div>
@@ -1680,72 +1324,26 @@
                     <div class="epoch-line"><span class="epoch-num">Эпоха  800</span><span class="epoch-mse">| Ошибка (MSE): 0.018773</span></div>
                     <div class="epoch-line"><span class="epoch-num">Эпоха  900</span><span class="epoch-mse">| Ошибка (MSE): 0.018665</span></div>
                 </div>
-                
                 <div class="completion-badge">✅ Обучение завершено!</div>
-                
                 <div class="diagnostic-header" style="margin-top: 15px;">📊 Итоговые результаты</div>
                 <div class="results-grid">
-                    <div class="result-box">
-                        <span class="result-label">Train MSE</span>
-                        <span class="result-value good">0.018530</span>
-                    </div>
-                    <div class="result-box">
-                        <span class="result-label">Test MSE</span>
-                        <span class="result-value warn">0.027012</span>
-                    </div>
+                    <div class="result-box"><span class="result-label">Train MSE</span><span class="result-value good">0.018530</span></div>
+                    <div class="result-box"><span class="result-label">Test MSE</span><span class="result-value warn">0.027012</span></div>
                 </div>
-                
                 <div class="prediction-list">
-                    <div class="diagnostic-header" style="margin-bottom: 8px; padding-bottom: 6px; border-bottom: none;">
-                        🔍 Примеры прогнозов (реальные оценки)
-                    </div>
-                    <div class="prediction-item">
-                        <span>Факт:</span><span class="prediction-fact">91.0</span>
-                        <span class="prediction-sep">|</span>
-                        <span>Прогноз:</span><span class="prediction-pred">69.6</span>
-                    </div>
-                    <div class="prediction-item">
-                        <span>Факт:</span><span class="prediction-fact">53.0</span>
-                        <span class="prediction-sep">|</span>
-                        <span>Прогноз:</span><span class="prediction-pred">65.6</span>
-                    </div>
-                    <div class="prediction-item">
-                        <span>Факт:</span><span class="prediction-fact">80.0</span>
-                        <span class="prediction-sep">|</span>
-                        <span>Прогноз:</span><span class="prediction-pred">69.3</span>
-                    </div>
-                    <div class="prediction-item">
-                        <span>Факт:</span><span class="prediction-fact">74.0</span>
-                        <span class="prediction-sep">|</span>
-                        <span>Прогноз:</span><span class="prediction-pred">64.0</span>
-                    </div>
-                    <div class="prediction-item">
-                        <span>Факт:</span><span class="prediction-fact">84.0</span>
-                        <span class="prediction-sep">|</span>
-                        <span>Прогноз:</span><span class="prediction-pred">71.0</span>
-                    </div>
+                    <div class="diagnostic-header" style="margin-bottom: 8px; padding-bottom: 6px; border-bottom: none;">🔍 Примеры прогнозов (реальные оценки)</div>
+                    <div class="prediction-item"><span>Факт:</span><span class="prediction-fact">91.0</span><span class="prediction-sep">|</span><span>Прогноз:</span><span class="prediction-pred">69.6</span></div>
+                    <div class="prediction-item"><span>Факт:</span><span class="prediction-fact">53.0</span><span class="prediction-sep">|</span><span>Прогноз:</span><span class="prediction-pred">65.6</span></div>
+                    <div class="prediction-item"><span>Факт:</span><span class="prediction-fact">80.0</span><span class="prediction-sep">|</span><span>Прогноз:</span><span class="prediction-pred">69.3</span></div>
+                    <div class="prediction-item"><span>Факт:</span><span class="prediction-fact">74.0</span><span class="prediction-sep">|</span><span>Прогноз:</span><span class="prediction-pred">64.0</span></div>
+                    <div class="prediction-item"><span>Факт:</span><span class="prediction-fact">84.0</span><span class="prediction-sep">|</span><span>Прогноз:</span><span class="prediction-pred">71.0</span></div>
                 </div>
-                
                 <div class="diagnostic-header" style="margin-top: 15px;">📊 Сравнение моделей</div>
                 <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Модель</th>
-                            <th style="text-align: right;">Train MSE</th>
-                            <th style="text-align: right;">Test MSE</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Модель</th><th style="text-align: right;">Train MSE</th><th style="text-align: right;">Test MSE</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>3 признака (базовая)</td>
-                            <td class="mse-val better">0.017982</td>
-                            <td class="mse-val better">0.026148</td>
-                        </tr>
-                        <tr>
-                            <td>4 признака (+reading score)</td>
-                            <td class="mse-val worse">0.018530</td>
-                            <td class="mse-val worse">0.027012</td>
-                        </tr>
+                        <tr><td>3 признака (базовая)</td><td class="mse-val better">0.017982</td><td class="mse-val better">0.026148</td></tr>
+                        <tr><td>4 признака (+reading score)</td><td class="mse-val worse">0.018530</td><td class="mse-val worse">0.027012</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1765,36 +1363,29 @@
             
             <div class="tree-container">
                 <div class="tree-title">🌲 Структура дерева</div>
-                
                 <div class="tree-node">
                     <span class="condition">Возраст ≤ 20.5</span>
-                    
                     <div class="tree-branch">
                         <span class="branch-label branch-yes">ДА</span>
                         <span class="decision denied">Отказ</span>
                         <span class="probability">(вероятность: 0.0%)</span>
                     </div>
-                    
                     <div class="tree-branch">
                         <span class="branch-label branch-no">НЕТ</span>
                         <span class="condition" style="margin-left: 10px;">Число ДТП ≤ 2.5</span>
-                        
                         <div class="tree-node" style="margin-left: 20px;">
                             <div class="tree-branch">
                                 <span class="branch-label branch-yes">ДА</span>
                                 <span class="decision approved">Одобрено</span>
                                 <span class="probability">(вероятность: 100.0%)</span>
                             </div>
-                            
                             <div class="tree-branch">
                                 <span class="branch-label branch-no">НЕТ</span>
                                 <span class="condition" style="margin-left: 10px;">Возраст ≤ 69.5</span>
-                                
                                 <div class="tree-node" style="margin-left: 20px;">
                                     <div class="tree-branch">
                                         <span class="branch-label branch-yes">ДА</span>
                                         <span class="condition" style="margin-left: 10px;">Возраст ≤ 24.5</span>
-                                        
                                         <div class="tree-node" style="margin-left: 20px;">
                                             <div class="tree-branch">
                                                 <span class="branch-label branch-yes">ДА</span>
@@ -1832,16 +1423,9 @@
         <article class="card">
             <span class="date-label">14 марта 2026</span>
             <h2>Статистика обучения</h2>
-            
             <div class="study-stats">
-                <div class="stat-box">
-                    <span class="stat-value">5ч</span>
-                    <span class="stat-label">Студент занимался</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-value score-highlight">76.45</span>
-                    <span class="stat-label">Прогноз баллов</span>
-                </div>
+                <div class="stat-box"><span class="stat-value">5ч</span><span class="stat-label">Студент занимался</span></div>
+                <div class="stat-box"><span class="stat-value score-highlight">76.45</span><span class="stat-label">Прогноз баллов</span></div>
             </div>
         </article>
 
@@ -1850,35 +1434,17 @@
             <span class="date-label">16 февраля 2026</span>
             <h2>Анализ данных</h2>
             <p>Топ-3 предсказания нейросети на текущий период:</p>
-            
             <div class="stat-item">
-                <div class="stat-header">
-                    <span>Sports car</span>
-                    <span>68.85%</span>
-                </div>
-                <div class="progress-bg">
-                    <div class="progress-fill" style="width: 68.85%"></div>
-                </div>
+                <div class="stat-header"><span>Sports car</span><span>68.85%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 68.85%"></div></div>
             </div>
-
             <div class="stat-item">
-                <div class="stat-header">
-                    <span>Race car</span>
-                    <span>22.13%</span>
-                </div>
-                <div class="progress-bg">
-                    <div class="progress-fill" style="width: 22.13%; opacity: 0.7;"></div>
-                </div>
+                <div class="stat-header"><span>Race car</span><span>22.13%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 22.13%; opacity: 0.7;"></div></div>
             </div>
-
             <div class="stat-item">
-                <div class="stat-header">
-                    <span>Station wagon</span>
-                    <span>6.44%</span>
-                </div>
-                <div class="progress-bg">
-                    <div class="progress-fill" style="width: 6.44%; opacity: 0.4;"></div>
-                </div>
+                <div class="stat-header"><span>Station wagon</span><span>6.44%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 6.44%; opacity: 0.4;"></div></div>
             </div>
         </article>
 
@@ -1899,25 +1465,20 @@
             <span class="date-label">25 февраля 2026</span>
             <h2>Решение ребуса: SEND + MORE = MONEY</h2>
             <p>Время решения: <strong>1.4273 сек.</strong></p>
-
             <div class="math-grid">
                 <div class="math-box"><span class="math-val">9</span><span class="math-char">S</span></div>
                 <div class="math-box"><span class="math-val">5</span><span class="math-char">E</span></div>
                 <div class="math-box"><span class="math-val">6</span><span class="math-char">N</span></div>
                 <div class="math-box"><span class="math-val">7</span><span class="math-char">D</span></div>
             </div>
-            
             <div style="text-align: center; font-size: 1.5rem; color: var(--text-secondary); margin: 5px;">+</div>
-
             <div class="math-grid">
                 <div class="math-box"><span class="math-val">1</span><span class="math-char">M</span></div>
                 <div class="math-box"><span class="math-val">0</span><span class="math-char">O</span></div>
                 <div class="math-box"><span class="math-val">8</span><span class="math-char">R</span></div>
                 <div class="math-box"><span class="math-val">5</span><span class="math-char">E</span></div>
             </div>
-
             <div style="text-align: center; font-size: 1.5rem; color: var(--text-secondary); margin: 5px;">=</div>
-
             <div class="math-grid" style="background: var(--accent-light); padding: 10px; border-radius: 12px;">
                 <div class="math-box" style="background: white;"><span class="math-val">1</span><span class="math-char">M</span></div>
                 <div class="math-box" style="background: white;"><span class="math-val">0</span><span class="math-char">O</span></div>
@@ -1925,7 +1486,6 @@
                 <div class="math-box" style="background: white;"><span class="math-val">5</span><span class="math-char">E</span></div>
                 <div class="math-box" style="background: white;"><span class="math-val">2</span><span class="math-char">Y</span></div>
             </div>
-            
             <p style="text-align: center; margin-top: 25px;" class="success-text">✓ Решение верное: 9567 + 1085 = 10652</p>
         </article>
 
@@ -1934,7 +1494,6 @@
             <span class="date-label">Архив сессии</span>
             <h2>Лог работы программы</h2>
             <p>Ниже представлен вывод консоли при решении серии задач:</p>
-            
 <pre>
 <span class="highlight">==============================</span>
        <strong>ГЛАВНОЕ МЕНЮ</strong>
@@ -1985,175 +1544,235 @@
 
     </div>
 
+    <!-- ===== МОДАЛЬНЫЕ ОКНА ДЛЯ КРОССВОРДОВ ===== -->
+    
+    <!-- Модальное окно: Кроссворд Анатомия -->
+    <div class="modal-overlay" id="modal-anatomy">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h2>🧬 Кроссворд: Анатомия человека</h2>
+                <button class="modal-close" onclick="closeCrossword('anatomy')">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">Введите буквы в клетки. Используйте стрелки для навигации.</p>
+                <div class="crossword">
+                    <div id="words-anatomy"></div>
+                    <div class="message-box" id="message-anatomy"></div>
+                    <div class="controls">
+                        <button class="btn btn-check" onclick="checkAnswersAnatomy()">✅ Проверить</button>
+                        <button class="btn btn-show" onclick="showAnswersAnatomy()">💡 Показать ответы</button>
+                        <button class="btn btn-clear" onclick="clearGridAnatomy()">🗑️ Очистить</button>
+                    </div>
+                </div>
+                <div class="info-block">
+                    💡 <strong>Подсказки:</strong><br>
+                    • Вводите буквы русского алфавита (А-Я, Ё)<br>
+                    • После ввода буквы фокус автоматически переходит к следующей ячейке<br>
+                    • Используйте стрелки ← → для навигации внутри слова<br>
+                    • Используйте Backspace для удаления буквы и перехода назад
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Кроссворд Фармакология -->
+    <div class="modal-overlay" id="modal-pharma">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h2>💊 Кроссворд: Фармакология</h2>
+                <button class="modal-close" onclick="closeCrossword('pharma')">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">Введите буквы в клетки. Используйте стрелки для навигации.</p>
+                <div class="crossword">
+                    <div id="words-pharma"></div>
+                    <div class="message-box" id="message-pharma"></div>
+                    <div class="controls">
+                        <button class="btn btn-check" onclick="checkAnswersPharma()">✅ Проверить</button>
+                        <button class="btn btn-show" onclick="showAnswersPharma()">💡 Показать ответы</button>
+                        <button class="btn btn-clear" onclick="clearGridPharma()">🗑️ Очистить</button>
+                    </div>
+                </div>
+                <div class="info-block">
+                    💡 <strong>Подсказки:</strong><br>
+                    • Вводите буквы русского алфавита (А-Я, Ё)<br>
+                    • После ввода буквы фокус автоматически переходит к следующей ячейке<br>
+                    • Используйте стрелки ← → для навигации внутри слова<br>
+                    • Используйте Backspace для удаления буквы и перехода назад
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // ========== КРОССВОРД АНАТОМИЯ ==========
+        // ========== ДАННЫЕ КРОССВОРДОВ ==========
         const WORDS_ANATOMY = [
-            { num: 1, word: "СЕРДЦЕ", dir: "across", startRow: 2, startCol: 3, clue: "Главный орган кровеносной системы" },
-            { num: 2, word: "МОЗГ", dir: "down", startRow: 0, startCol: 5, clue: "Центральный орган нервной системы" },
-            { num: 3, word: "ПЕЧЕНЬ", dir: "across", startRow: 5, startCol: 1, clue: "Крупнейшая железа организма" },
-            { num: 4, word: "ПОЧКА", dir: "down", startRow: 3, startCol: 3, clue: "Орган мочевыделительной системы" },
-            { num: 5, word: "ЖЕЛУДОК", dir: "across", startRow: 7, startCol: 2, clue: "Орган пищеварительной системы" },
-            { num: 6, word: "ЛЁГКИЕ", dir: "down", startRow: 1, startCol: 8, clue: "Органы дыхания" },
-            { num: 7, word: "ЧЕРЕП", dir: "across", startRow: 9, startCol: 4, clue: "Костная оболочка головы" },
-            { num: 8, word: "РЕБРО", dir: "down", startRow: 4, startCol: 6, clue: "Кость грудной клетки" },
-            { num: 9, word: "ПОЗВОНОЧНИК", dir: "across", startRow: 10, startCol: 0, clue: "Опора тела из костей" },
-            { num: 10, word: "МЫШЦА", dir: "down", startRow: 6, startCol: 10, clue: "Орган двигательной системы" }
+            { num: 1, word: "СЕРДЦЕ", clue: "Главный орган кровеносной системы" },
+            { num: 2, word: "МОЗГ", clue: "Центральный орган нервной системы" },
+            { num: 3, word: "ПЕЧЕНЬ", clue: "Крупнейшая железа организма" },
+            { num: 4, word: "ПОЧКА", clue: "Орган мочевыделительной системы" },
+            { num: 5, word: "ЖЕЛУДОК", clue: "Орган пищеварительной системы" },
+            { num: 6, word: "ЛЁГКИЕ", clue: "Органы дыхания" },
+            { num: 7, word: "ЧЕРЕП", clue: "Костная оболочка головы" },
+            { num: 8, word: "РЕБРО", clue: "Кость грудной клетки" },
+            { num: 9, word: "ПОЗВОНОЧНИК", clue: "Опора тела из костей" },
+            { num: 10, word: "МЫШЦА", clue: "Орган двигательной системы" }
         ];
 
-        const ROWS_ANATOMY = 12;
-        const COLS_ANATOMY = 15;
-        let gridDataAnatomy = Array.from({ length: ROWS_ANATOMY }, () => Array(COLS_ANATOMY).fill(null));
-        let activeCellAnatomy = { r: 0, c: 0 };
+        const WORDS_PHARMA = [
+            { num: 1, word: "ТАБЛЕТКА", clue: "Твёрдая лекарственная форма для приёма внутрь" },
+            { num: 2, word: "АСПИРИН", clue: "Известное жаропонижающее и обезболивающее средство" },
+            { num: 3, word: "АПТЕКА", clue: "Учреждение, где продают лекарства" },
+            { num: 4, word: "ДОЗА", clue: "Количество лекарства, принимаемое за один раз" },
+            { num: 5, word: "РЕЦЕПТ", clue: "Письменное назначение врача на изготовление и отпуск лекарства" }
+        ];
 
-        function initGridAnatomy() {
-            gridDataAnatomy = Array.from({ length: ROWS_ANATOMY }, () => Array(COLS_ANATOMY).fill(null));
-            WORDS_ANATOMY.forEach(w => {
-                for (let i = 0; i < w.word.length; i++) {
-                    let r = w.startRow + (w.dir === 'down' ? i : 0);
-                    let c = w.startCol + (w.dir === 'across' ? i : 0);
-                    if (!gridDataAnatomy[r][c]) gridDataAnatomy[r][c] = { letter: '', numbers: [] };
-                    gridDataAnatomy[r][c].letter = w.word[i];
-                    if (i === 0) gridDataAnatomy[r][c].numbers.push(w.num);
+        // ========== УПРАВЛЕНИЕ МОДАЛЬНЫМИ ОКНАМИ ==========
+        function openCrossword(id) {
+            const modal = document.getElementById('modal-' + id);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Рендерим кроссворд при открытии
+            if (id === 'anatomy') renderWords(WORDS_ANATOMY, 'words-anatomy', 'anatomy');
+            else if (id === 'pharma') renderWords(WORDS_PHARMA, 'words-pharma', 'pharma');
+        }
+
+        function closeCrossword(id) {
+            const modal = document.getElementById('modal-' + id);
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Закрытие по клику на фон
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = '';
                 }
             });
-        }
+        });
 
-        function renderGridAnatomy() {
-            const gridEl = document.getElementById('grid-anatomy');
-            gridEl.innerHTML = '';
-            
-            for (let r = 0; r < ROWS_ANATOMY; r++) {
-                for (let c = 0; c < COLS_ANATOMY; c++) {
-                    const cell = document.createElement('div');
-                    cell.className = 'cell';
-                    cell.dataset.row = r;
-                    cell.dataset.col = c;
-
-                    if (gridDataAnatomy[r][c]) {
-                        const input = document.createElement('input');
-                        input.type = 'text';
-                        input.maxLength = 1;
-                        input.className = 'cell-input';
-                        input.dataset.row = r;
-                        input.dataset.col = c;
-                        
-                        input.addEventListener('input', handleInputAnatomy);
-                        input.addEventListener('keydown', handleKeyDownAnatomy);
-                        input.addEventListener('focus', () => {
-                            activeCellAnatomy = { r, c };
-                            highlightCluesAnatomy(r, c);
-                        });
-                        cell.appendChild(input);
-
-                        if (gridDataAnatomy[r][c].numbers.length > 0) {
-                            const numSpan = document.createElement('span');
-                            numSpan.className = 'cell-number';
-                            numSpan.textContent = gridDataAnatomy[r][c].numbers.join(',');
-                            cell.appendChild(numSpan);
-                        }
-                    } else {
-                        cell.classList.add('empty');
-                    }
-                    gridEl.appendChild(cell);
-                }
+        // Закрытие по Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
             }
-        }
+        });
 
-        function renderCluesAnatomy() {
-            const acrossEl = document.getElementById('across-clues-anatomy');
-            const downEl = document.getElementById('down-clues-anatomy');
+        // ========== ОБЩАЯ ФУНКЦИЯ РЕНДЕРИНГА КРОССВОРДА ==========
+        function renderWords(words, containerId, crosswordId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
             
-            acrossEl.innerHTML = '';
-            downEl.innerHTML = '';
-            
-            WORDS_ANATOMY.forEach(w => {
-                const el = document.createElement('div');
-                el.className = 'clue-item';
-                el.dataset.wordNum = w.num;
-                el.innerHTML = `<span class="clue-number">${w.num}.</span> ${w.clue}`;
-                el.onclick = () => focusWordAnatomy(w);
+            words.forEach((wordData, wordIndex) => {
+                const row = document.createElement('div');
+                row.className = 'word-row';
+                row.dataset.wordIndex = wordIndex;
                 
-                if (w.dir === 'across') acrossEl.appendChild(el);
-                else downEl.appendChild(el);
+                const number = document.createElement('div');
+                number.className = 'word-number';
+                number.textContent = wordData.num;
+                
+                const clue = document.createElement('div');
+                clue.className = 'word-clue';
+                clue.textContent = wordData.clue;
+                
+                const cells = document.createElement('div');
+                cells.className = 'word-cells';
+                
+                for (let i = 0; i < wordData.word.length; i++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'word-cell';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.maxLength = 1;
+                    input.dataset.crosswordId = crosswordId;
+                    input.dataset.wordIndex = wordIndex;
+                    input.dataset.letterIndex = i;
+                    
+                    input.addEventListener('input', function(e) {
+                        const val = e.target.value.toUpperCase();
+                        const cyrillicPattern = /^[А-ЯЁ]$/;
+                        if (val && !cyrillicPattern.test(val)) {
+                            e.target.value = '';
+                            return;
+                        }
+                        e.target.value = val;
+                        e.target.classList.remove('correct', 'incorrect');
+                        
+                        if (val) moveToNextInput(crosswordId, words, wordIndex, i);
+                    });
+                    
+                    input.addEventListener('keydown', function(e) {
+                        if (e.key === 'Backspace') {
+                            if (e.target.value === '') {
+                                e.preventDefault();
+                                moveToPrevInput(crosswordId, words, wordIndex, i);
+                            } else {
+                                e.target.value = '';
+                                e.target.classList.remove('correct', 'incorrect');
+                            }
+                        } else if (e.key === 'ArrowRight') {
+                            e.preventDefault();
+                            moveToNextInput(crosswordId, words, wordIndex, i);
+                        } else if (e.key === 'ArrowLeft') {
+                            e.preventDefault();
+                            moveToPrevInput(crosswordId, words, wordIndex, i);
+                        }
+                    });
+                    
+                    cell.appendChild(input);
+                    cells.appendChild(cell);
+                }
+                
+                row.appendChild(number);
+                row.appendChild(clue);
+                row.appendChild(cells);
+                container.appendChild(row);
             });
         }
 
-        function handleInputAnatomy(e) {
-            const input = e.target;
-            const val = input.value.toUpperCase();
-            
-            const cyrillicPattern = /^[А-ЯЁ]$/;
-            if (val && !cyrillicPattern.test(val)) {
-                input.value = '';
-                return;
-            }
-            
-            input.value = val;
-            if (val) moveFocusAnatomy(1);
-        }
-
-        function handleKeyDownAnatomy(e) {
-            if (e.key === 'ArrowRight') moveFocusAnatomy(1, 'across');
-            else if (e.key === 'ArrowLeft') moveFocusAnatomy(-1, 'across');
-            else if (e.key === 'ArrowDown') moveFocusAnatomy(1, 'down');
-            else if (e.key === 'ArrowUp') moveFocusAnatomy(-1, 'down');
-            else if (e.key === 'Backspace') {
-                e.preventDefault();
-                if (e.target.value === '') moveFocusAnatomy(-1);
-                e.target.value = '';
+        function moveToNextInput(crosswordId, words, wordIndex, letterIndex) {
+            const currentWord = words[wordIndex];
+            if (letterIndex < currentWord.word.length - 1) {
+                const nextInput = document.querySelector(`input[data-crossword-id="${crosswordId}"][data-word-index="${wordIndex}"][data-letter-index="${letterIndex + 1}"]`);
+                if (nextInput) nextInput.focus();
+            } else if (wordIndex < words.length - 1) {
+                const nextInput = document.querySelector(`input[data-crossword-id="${crosswordId}"][data-word-index="${wordIndex + 1}"][data-letter-index="0"]`);
+                if (nextInput) nextInput.focus();
             }
         }
 
-        function moveFocusAnatomy(step, dir = null) {
-            let { r, c } = activeCellAnatomy;
-            let dr = 0, dc = 0;
-            
-            if (dir === 'across') dc = step;
-            else if (dir === 'down') dr = step;
-            else {
-                dc = step; 
-            }
-
-            let nr = r + dr, nc = c + dc;
-            while (nr >= 0 && nr < ROWS_ANATOMY && nc >= 0 && nc < COLS_ANATOMY) {
-                if (gridDataAnatomy[nr][nc]) {
-                    const cell = document.querySelector(`#grid-anatomy .cell-input[data-row="${nr}"][data-col="${nc}"]`);
-                    if (cell) cell.focus();
-                    return;
-                }
-                nr += dr; nc += dc;
+        function moveToPrevInput(crosswordId, words, wordIndex, letterIndex) {
+            if (letterIndex > 0) {
+                const prevInput = document.querySelector(`input[data-crossword-id="${crosswordId}"][data-word-index="${wordIndex}"][data-letter-index="${letterIndex - 1}"]`);
+                if (prevInput) prevInput.focus();
+            } else if (wordIndex > 0) {
+                const prevWord = words[wordIndex - 1];
+                const prevInput = document.querySelector(`input[data-crossword-id="${crosswordId}"][data-word-index="${wordIndex - 1}"][data-letter-index="${prevWord.word.length - 1}"]`);
+                if (prevInput) prevInput.focus();
             }
         }
 
-        function highlightCluesAnatomy(r, c) {
-            document.querySelectorAll('#across-clues-anatomy .clue-item, #down-clues-anatomy .clue-item').forEach(el => el.classList.remove('active'));
-            WORDS_ANATOMY.forEach(w => {
-                const isAcross = w.dir === 'across' && r === w.startRow && c >= w.startCol && c < w.startCol + w.word.length;
-                const isDown = w.dir === 'down' && c === w.startCol && r >= w.startRow && r < w.startRow + w.word.length;
-                if (isAcross || isDown) {
-                    document.querySelector(`.clue-item[data-word-num="${w.num}"]`).classList.add('active');
-                }
-            });
-        }
-
-        function focusWordAnatomy(w) {
-            const input = document.querySelector(`#grid-anatomy .cell-input[data-row="${w.startRow}"][data-col="${w.startCol}"]`);
-            if (input) input.focus();
-        }
-
+        // ========== ПРОВЕРКА ОТВЕТОВ: АНАТОМИЯ ==========
         function checkAnswersAnatomy() {
             let correctCount = 0;
             const messageEl = document.getElementById('message-anatomy');
             
-            WORDS_ANATOMY.forEach(w => {
+            WORDS_ANATOMY.forEach((wordData, wordIndex) => {
                 let isWordCorrect = true;
-                for (let i = 0; i < w.word.length; i++) {
-                    let r = w.startRow + (w.dir === 'down' ? i : 0);
-                    let c = w.startCol + (w.dir === 'across' ? i : 0);
-                    const input = document.querySelector(`#grid-anatomy .cell-input[data-row="${r}"][data-col="${c}"]`);
-                    
+                const row = document.querySelector(`#words-anatomy .word-row[data-word-index="${wordIndex}"]`);
+                
+                for (let i = 0; i < wordData.word.length; i++) {
+                    const input = document.querySelector(`input[data-crossword-id="anatomy"][data-word-index="${wordIndex}"][data-letter-index="${i}"]`);
                     if (input) {
-                        if (input.value.toUpperCase() === w.word[i]) {
+                        if (input.value.toUpperCase() === wordData.word[i]) {
                             input.classList.add('correct');
                             input.classList.remove('incorrect');
                         } else {
@@ -2163,204 +1782,67 @@
                         }
                     }
                 }
-                if (isWordCorrect) correctCount++;
+                
+                if (isWordCorrect) {
+                    correctCount++;
+                    row.classList.add('all-correct');
+                } else {
+                    row.classList.remove('all-correct');
+                }
             });
 
+            messageEl.classList.remove('success', 'error', 'info');
             if (correctCount === WORDS_ANATOMY.length) {
-                messageEl.style.color = 'var(--success)';
+                messageEl.classList.add('success');
                 messageEl.textContent = `🎉 Поздравляем! Вы отгадали все ${correctCount} слов!`;
             } else {
-                messageEl.style.color = 'var(--error)';
-                messageEl.textContent = `✅ Правильно: ${correctCount} из ${WORDS_ANATOMY.length}`;
+                messageEl.classList.add('error');
+                messageEl.textContent = `✅ Правильно: ${correctCount} из ${WORDS_ANATOMY.length}. Попробуйте ещё!`;
             }
         }
 
         function showAnswersAnatomy() {
-            WORDS_ANATOMY.forEach(w => {
-                for (let i = 0; i < w.word.length; i++) {
-                    let r = w.startRow + (w.dir === 'down' ? i : 0);
-                    let c = w.startCol + (w.dir === 'across' ? i : 0);
-                    const input = document.querySelector(`#grid-anatomy .cell-input[data-row="${r}"][data-col="${c}"]`);
+            WORDS_ANATOMY.forEach((wordData, wordIndex) => {
+                for (let i = 0; i < wordData.word.length; i++) {
+                    const input = document.querySelector(`input[data-crossword-id="anatomy"][data-word-index="${wordIndex}"][data-letter-index="${i}"]`);
                     if (input) {
-                        input.value = w.word[i];
+                        input.value = wordData.word[i];
                         input.classList.remove('incorrect', 'correct');
                     }
                 }
             });
-            document.getElementById('message-anatomy').textContent = 'Ответы показаны. Попробуйте отгадать сами!';
+            const messageEl = document.getElementById('message-anatomy');
+            messageEl.classList.remove('success', 'error');
+            messageEl.classList.add('info');
+            messageEl.textContent = '💡 Ответы показаны. Попробуйте отгадать сами!';
         }
 
         function clearGridAnatomy() {
-            document.querySelectorAll('#grid-anatomy .cell-input').forEach(input => {
+            document.querySelectorAll('input[data-crossword-id="anatomy"]').forEach(input => {
                 input.value = '';
                 input.classList.remove('incorrect', 'correct');
             });
-            document.getElementById('message-anatomy').textContent = '';
-        }
-
-        // ========== КРОССВОРД ФАРМАКОЛОГИЯ ==========
-        const WORDS_PHARMA = [
-            { num: 1, word: "ТАБЛЕТКА", dir: "across", startRow: 2, startCol: 1, clue: "Твёрдая лекарственная форма для приёма внутрь" },
-            { num: 2, word: "АСПИРИН", dir: "down", startRow: 2, startCol: 2, clue: "Известное жаропонижающее и обезболивающее средство" },
-            { num: 3, word: "АПТЕКА", dir: "down", startRow: 2, startCol: 8, clue: "Учреждение, где продают лекарства" },
-            { num: 4, word: "ДОЗА", dir: "across", startRow: 7, startCol: 4, clue: "Количество лекарства, принимаемое за один раз" },
-            { num: 5, word: "РЕЦЕПТ", dir: "across", startRow: 6, startCol: 2, clue: "Письменное назначение врача на изготовление и отпуск лекарства" }
-        ];
-
-        const ROWS_PHARMA = 10;
-        const COLS_PHARMA = 10;
-        let gridDataPharma = Array.from({ length: ROWS_PHARMA }, () => Array(COLS_PHARMA).fill(null));
-        let activeCellPharma = { r: 0, c: 0 };
-
-        function initGridPharma() {
-            gridDataPharma = Array.from({ length: ROWS_PHARMA }, () => Array(COLS_PHARMA).fill(null));
-            WORDS_PHARMA.forEach(w => {
-                for (let i = 0; i < w.word.length; i++) {
-                    let r = w.startRow + (w.dir === 'down' ? i : 0);
-                    let c = w.startCol + (w.dir === 'across' ? i : 0);
-                    if (!gridDataPharma[r][c]) gridDataPharma[r][c] = { letter: '', numbers: [] };
-                    gridDataPharma[r][c].letter = w.word[i];
-                    if (i === 0) gridDataPharma[r][c].numbers.push(w.num);
-                }
+            document.querySelectorAll('#words-anatomy .word-row').forEach(row => {
+                row.classList.remove('all-correct');
             });
+            const messageEl = document.getElementById('message-anatomy');
+            messageEl.classList.remove('success', 'error', 'info');
+            messageEl.textContent = '';
         }
 
-        function renderGridPharma() {
-            const gridEl = document.getElementById('grid-pharma');
-            gridEl.innerHTML = '';
-            
-            for (let r = 0; r < ROWS_PHARMA; r++) {
-                for (let c = 0; c < COLS_PHARMA; c++) {
-                    const cell = document.createElement('div');
-                    cell.className = 'cell';
-                    cell.dataset.row = r;
-                    cell.dataset.col = c;
-
-                    if (gridDataPharma[r][c]) {
-                        const input = document.createElement('input');
-                        input.type = 'text';
-                        input.maxLength = 1;
-                        input.className = 'cell-input';
-                        input.dataset.row = r;
-                        input.dataset.col = c;
-                        
-                        input.addEventListener('input', handleInputPharma);
-                        input.addEventListener('keydown', handleKeyDownPharma);
-                        input.addEventListener('focus', () => {
-                            activeCellPharma = { r, c };
-                            highlightCluesPharma(r, c);
-                        });
-                        cell.appendChild(input);
-
-                        if (gridDataPharma[r][c].numbers.length > 0) {
-                            const numSpan = document.createElement('span');
-                            numSpan.className = 'cell-number';
-                            numSpan.textContent = gridDataPharma[r][c].numbers.join(',');
-                            cell.appendChild(numSpan);
-                        }
-                    } else {
-                        cell.classList.add('empty');
-                    }
-                    gridEl.appendChild(cell);
-                }
-            }
-        }
-
-        function renderCluesPharma() {
-            const acrossEl = document.getElementById('across-clues-pharma');
-            const downEl = document.getElementById('down-clues-pharma');
-            
-            acrossEl.innerHTML = '';
-            downEl.innerHTML = '';
-            
-            WORDS_PHARMA.forEach(w => {
-                const el = document.createElement('div');
-                el.className = 'clue-item';
-                el.dataset.wordNum = w.num;
-                el.innerHTML = `<span class="clue-number">${w.num}.</span> ${w.clue}`;
-                el.onclick = () => focusWordPharma(w);
-                
-                if (w.dir === 'across') acrossEl.appendChild(el);
-                else downEl.appendChild(el);
-            });
-        }
-
-        function handleInputPharma(e) {
-            const input = e.target;
-            const val = input.value.toUpperCase();
-            
-            const cyrillicPattern = /^[А-ЯЁ]$/;
-            if (val && !cyrillicPattern.test(val)) {
-                input.value = '';
-                return;
-            }
-            
-            input.value = val;
-            if (val) moveFocusPharma(1);
-        }
-
-        function handleKeyDownPharma(e) {
-            if (e.key === 'ArrowRight') moveFocusPharma(1, 'across');
-            else if (e.key === 'ArrowLeft') moveFocusPharma(-1, 'across');
-            else if (e.key === 'ArrowDown') moveFocusPharma(1, 'down');
-            else if (e.key === 'ArrowUp') moveFocusPharma(-1, 'down');
-            else if (e.key === 'Backspace') {
-                e.preventDefault();
-                if (e.target.value === '') moveFocusPharma(-1);
-                e.target.value = '';
-            }
-        }
-
-        function moveFocusPharma(step, dir = null) {
-            let { r, c } = activeCellPharma;
-            let dr = 0, dc = 0;
-            
-            if (dir === 'across') dc = step;
-            else if (dir === 'down') dr = step;
-            else {
-                dc = step; 
-            }
-
-            let nr = r + dr, nc = c + dc;
-            while (nr >= 0 && nr < ROWS_PHARMA && nc >= 0 && nc < COLS_PHARMA) {
-                if (gridDataPharma[nr][nc]) {
-                    const cell = document.querySelector(`#grid-pharma .cell-input[data-row="${nr}"][data-col="${nc}"]`);
-                    if (cell) cell.focus();
-                    return;
-                }
-                nr += dr; nc += dc;
-            }
-        }
-
-        function highlightCluesPharma(r, c) {
-            document.querySelectorAll('#across-clues-pharma .clue-item, #down-clues-pharma .clue-item').forEach(el => el.classList.remove('active'));
-            WORDS_PHARMA.forEach(w => {
-                const isAcross = w.dir === 'across' && r === w.startRow && c >= w.startCol && c < w.startCol + w.word.length;
-                const isDown = w.dir === 'down' && c === w.startCol && r >= w.startRow && r < w.startRow + w.word.length;
-                if (isAcross || isDown) {
-                    document.querySelector(`.clue-item[data-word-num="${w.num}"]`).classList.add('active');
-                }
-            });
-        }
-
-        function focusWordPharma(w) {
-            const input = document.querySelector(`#grid-pharma .cell-input[data-row="${w.startRow}"][data-col="${w.startCol}"]`);
-            if (input) input.focus();
-        }
-
+        // ========== ПРОВЕРКА ОТВЕТОВ: ФАРМАКОЛОГИЯ ==========
         function checkAnswersPharma() {
             let correctCount = 0;
             const messageEl = document.getElementById('message-pharma');
             
-            WORDS_PHARMA.forEach(w => {
+            WORDS_PHARMA.forEach((wordData, wordIndex) => {
                 let isWordCorrect = true;
-                for (let i = 0; i < w.word.length; i++) {
-                    let r = w.startRow + (w.dir === 'down' ? i : 0);
-                    let c = w.startCol + (w.dir === 'across' ? i : 0);
-                    const input = document.querySelector(`#grid-pharma .cell-input[data-row="${r}"][data-col="${c}"]`);
-                    
+                const row = document.querySelector(`#words-pharma .word-row[data-word-index="${wordIndex}"]`);
+                
+                for (let i = 0; i < wordData.word.length; i++) {
+                    const input = document.querySelector(`input[data-crossword-id="pharma"][data-word-index="${wordIndex}"][data-letter-index="${i}"]`);
                     if (input) {
-                        if (input.value.toUpperCase() === w.word[i]) {
+                        if (input.value.toUpperCase() === wordData.word[i]) {
                             input.classList.add('correct');
                             input.classList.remove('incorrect');
                         } else {
@@ -2370,81 +1852,53 @@
                         }
                     }
                 }
-                if (isWordCorrect) correctCount++;
+                
+                if (isWordCorrect) {
+                    correctCount++;
+                    row.classList.add('all-correct');
+                } else {
+                    row.classList.remove('all-correct');
+                }
             });
 
+            messageEl.classList.remove('success', 'error', 'info');
             if (correctCount === WORDS_PHARMA.length) {
-                messageEl.style.color = 'var(--success)';
+                messageEl.classList.add('success');
                 messageEl.textContent = `🎉 Поздравляем! Вы отгадали все ${correctCount} слов!`;
             } else {
-                messageEl.style.color = 'var(--error)';
-                messageEl.textContent = `✅ Правильно: ${correctCount} из ${WORDS_PHARMA.length}`;
+                messageEl.classList.add('error');
+                messageEl.textContent = `✅ Правильно: ${correctCount} из ${WORDS_PHARMA.length}. Попробуйте ещё!`;
             }
         }
 
         function showAnswersPharma() {
-            WORDS_PHARMA.forEach(w => {
-                for (let i = 0; i < w.word.length; i++) {
-                    let r = w.startRow + (w.dir === 'down' ? i : 0);
-                    let c = w.startCol + (w.dir === 'across' ? i : 0);
-                    const input = document.querySelector(`#grid-pharma .cell-input[data-row="${r}"][data-col="${c}"]`);
+            WORDS_PHARMA.forEach((wordData, wordIndex) => {
+                for (let i = 0; i < wordData.word.length; i++) {
+                    const input = document.querySelector(`input[data-crossword-id="pharma"][data-word-index="${wordIndex}"][data-letter-index="${i}"]`);
                     if (input) {
-                        input.value = w.word[i];
+                        input.value = wordData.word[i];
                         input.classList.remove('incorrect', 'correct');
                     }
                 }
             });
-            document.getElementById('message-pharma').textContent = 'Ответы показаны. Попробуйте отгадать сами!';
+            const messageEl = document.getElementById('message-pharma');
+            messageEl.classList.remove('success', 'error');
+            messageEl.classList.add('info');
+            messageEl.textContent = '💡 Ответы показаны. Попробуйте отгадать сами!';
         }
 
         function clearGridPharma() {
-            document.querySelectorAll('#grid-pharma .cell-input').forEach(input => {
+            document.querySelectorAll('input[data-crossword-id="pharma"]').forEach(input => {
                 input.value = '';
                 input.classList.remove('incorrect', 'correct');
             });
-            document.getElementById('message-pharma').textContent = '';
-        }
-
-        // ========== УПРАВЛЕНИЕ ВКЛАДКАМИ ==========
-        function showCrossword(crosswordId) {
-            // Скрываем все кроссворды
-            document.querySelectorAll('.crossword-content').forEach(el => {
-                el.classList.remove('active');
+            document.querySelectorAll('#words-pharma .word-row').forEach(row => {
+                row.classList.remove('all-correct');
             });
-            // Скрываем все кнопки
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Показываем выбранный кроссворд
-            const crosswordElement = document.getElementById(`crossword-${crosswordId}`);
-            if (crosswordElement) {
-                crosswordElement.classList.add('active');
-                
-                // Активируем соответствующую кнопку
-                const button = document.querySelector(`.tab-btn:nth-child(${crosswordId === 'anatomy' ? 1 : 2})`);
-                if (button) button.classList.add('active');
-                
-                // Инициализируем и рендерим кроссворд при первом открытии
-                if (crosswordId === 'anatomy') {
-                    initGridAnatomy();
-                    renderGridAnatomy();
-                    renderCluesAnatomy();
-                } else if (crosswordId === 'pharma') {
-                    initGridPharma();
-                    renderGridPharma();
-                    renderCluesPharma();
-                }
-            }
+            const messageEl = document.getElementById('message-pharma');
+            messageEl.classList.remove('success', 'error', 'info');
+            messageEl.textContent = '';
         }
-
-        // Инициализация при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            // Инициализируем кроссворд Анатомия по умолчанию
-            initGridAnatomy();
-            renderGridAnatomy();
-            renderCluesAnatomy();
-        });
     </script>
 
 </body>
